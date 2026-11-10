@@ -117,7 +117,7 @@
         window.customThemePresets = [
             // The built-in Dark theme, not a custom theme. Its colors start the fields when the user edits it. The sidebar is
             // the color that the Dark sidebar shows: #120e1a with its 9% purple wash.
-            { name: 'Coolify', theme: null, swatch: { sidebar: '#1a0f2d', selected: '#1c1c1c', accent: '#6b16ed', background: '#0a0a0a' } },
+            { name: 'Vyntra', theme: null, swatch: { sidebar: '#1a0f2d', selected: '#1c1c1c', accent: '#6b16ed', background: '#0a0a0a' } },
             { name: 'Midnight', theme: { sidebar: '#0f172a', selected: '#2e4a7d', accent: '#f2458f', background: '#1a2338' } },
             { name: 'Forest', theme: { sidebar: '#12342b', selected: '#2c6e57', accent: '#f4b860', background: '#1b2a25' } },
             { name: 'Ember', theme: { sidebar: '#3b1410', selected: '#8f2d1f', accent: '#ffb86b', background: '#241816' } },
@@ -403,10 +403,10 @@
     <title>{{ $name }}{{ $title ?? 'Vyntra' }}</title>
     @env('local')
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32" />
-        <link rel="icon" href="{{ asset('coolify-logo.svg') }}" type="image/svg+xml" />
+        <link rel="icon" href="{{ asset('vyntra-logo.svg') }}" type="image/svg+xml" />
     @else
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32" />
-        <link rel="icon" href="{{ asset('coolify-logo.svg') }}" type="image/svg+xml" />
+        <link rel="icon" href="{{ asset('vyntra-logo.svg') }}" type="image/svg+xml" />
     @endenv
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
@@ -425,9 +425,6 @@
             display: none !important;
         }
     </style>
-    @if (config('app.name') == 'Coolify Cloud')
-        <script defer data-domain="app.coolify.io" src="https://analytics.coollabs.io/js/plausible.js"></script>
-    @endif
     @auth
         <script type="text/javascript" src="{{ URL::asset('js/echo.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/pusher.js') }}"></script>

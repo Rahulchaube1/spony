@@ -1,7 +1,6 @@
 @can('create', App\Models\S3Storage::class)
     <div class="w-full">
-        <div class="mb-4">For more details, please visit the <a class="underline dark:text-brand-light"
-                href="https://coolify.io/docs/knowledge-base/s3/introduction" target="_blank">Coolify Docs</a>.</div>
+        <div class="mb-4">Configure an S3-compatible storage endpoint for automated database backups.</div>
         <form class="flex flex-col gap-2" wire:submit='submit'>
             <div class="w-64">
                 <x-forms.listbox required live id="type" label="Type" :options="App\Enums\BackupStorageType::options()" />

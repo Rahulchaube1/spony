@@ -93,11 +93,11 @@
                 </x-application.settings-subsection>
                 @if (isCloud())
                     <x-application.settings-subsection id="domain-connect-section" title="Domain Connect"
-                        helper="Optional RSA private key used to sign Cloudflare Domain Connect apply URLs on Coolify Cloud. Leave blank to keep the existing key.">
+                        helper="Optional RSA private key used to sign Cloudflare Domain Connect apply URLs on Vyntra Cloud. Leave blank to keep the existing key.">
                         <div class="grid gap-4">
                             <x-forms.input id="domain_connect_private_key" type="password" allowToPeak
                                 label="Domain Connect private key (PEM)"
-                                helper="Paste a PEM private key to set or rotate. Public key must be published at domainconnect.coolify.io. Env DOMAIN_CONNECT_PRIVATE_KEY is used as a fallback when this is empty."
+                                helper="Paste a PEM private key to set or rotate. Public key must be published at domainconnect.vyntra.org. Env DOMAIN_CONNECT_PRIVATE_KEY is used as a fallback when this is empty."
                                 placeholder="-----BEGIN PRIVATE KEY-----" />
                             @if (filled(data_get($settings, 'domain_connect_private_key')))
                                 <div class="flex flex-wrap items-center gap-2">
@@ -116,7 +116,7 @@
                         </div>
                     </x-application.settings-subsection>
                     <x-application.settings-subsection id="server-validation-section" title="Server validation"
-                        helper="Limits failed SSH validations, so users cannot make Coolify Cloud try logins on hosts that they do not own. Successful connections do not count.">
+                        helper="Limits failed SSH validations, so users cannot make Vyntra Cloud try logins on hosts that they do not own. Successful connections do not count.">
                         <div class="grid gap-4 lg:grid-cols-3">
                             <x-forms.input id="server_validation_rate_limit_seconds" type="number" min="60" max="86400"
                                 label="Rate limit window (seconds)"

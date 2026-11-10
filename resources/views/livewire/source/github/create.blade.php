@@ -10,14 +10,14 @@
                 :helper="$use_for_github_runners
                     ? 'GitHub Actions runners are registered at organization level.'
                     : 'If empty, your GitHub user will be used. GitHub Actions runners need an organization.'"
-                :placeholder="$use_for_github_runners ? 'GitHub organization, for example coollabsio' : 'Personal account when empty'" />
+                :placeholder="$use_for_github_runners ? 'GitHub organization, for example vyntra-org' : 'Personal account when empty'" />
         </div>
 
         @if (! isCloud() && auth()->user()->can('makeSystemWide', \App\Models\GithubApp::class))
             <div x-data="{ showWarning: @entangle('is_system_wide') }">
                 <div class="max-w-xs">
                     <x-forms.checkbox id="is_system_wide" label="System wide"
-                        helper="If checked, this GitHub App will be available for everyone in this Coolify instance." />
+                        helper="If checked, this GitHub App will be available for everyone in this Vyntra instance." />
                 </div>
                 <div x-cloak x-show="showWarning" x-transition class="mt-3">
                     <x-callout type="warning" title="Shared with every team">

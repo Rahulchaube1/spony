@@ -50,7 +50,7 @@
                     <div class="flex items-center gap-2 min-w-0">
                         <a href="/" {{ wireNavigate() }} title="Vyntra"
                             class="flex shrink-0 items-center gap-2 hover:opacity-80 transition-opacity">
-                            <img src="/coolify-logo.svg" alt="Vyntra"
+                            <img src="/vyntra-logo.svg" alt="Vyntra"
                                 class="h-6 w-auto max-w-[36px] object-contain" />
                             <span x-show="!collapsed" class="text-[15px] font-semibold tracking-tight text-black dark:text-white">Vyntra</span>
                         </a>
@@ -107,7 +107,7 @@
                             <div class="flex min-w-0 items-center gap-2">
                                 <a href="/" {{ wireNavigate() }} title="Vyntra"
                                     class="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-black transition-opacity hover:opacity-80 dark:text-white">
-                                    <img src="/coolify-logo.svg" alt="Vyntra" class="h-5 w-auto max-w-[28px] object-contain" />
+                                    <img src="/vyntra-logo.svg" alt="Vyntra" class="h-5 w-auto max-w-[28px] object-contain" />
                                     <span>Vyntra</span>
                                 </a>
                                 <x-version class="!text-[10.5px] font-medium text-neutral-400 dark:text-fg-faint !opacity-100 hover:!opacity-100 hover:text-black dark:hover:text-fg" />
@@ -141,7 +141,7 @@
                 <div class="flex min-w-0 flex-1 items-center gap-2.5">
                     <a href="/"
                         class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-neutral-100 transition-opacity hover:opacity-80 dark:bg-white/[0.06]">
-                        <img src="/coolify-logo.svg" alt="Vyntra" class="w-[18px] h-[18px] object-contain" />
+                        <img src="/vyntra-logo.svg" alt="Vyntra" class="w-[18px] h-[18px] object-contain" />
                     </a>
                     <div class="min-w-0" x-data="{ collapsed: false }">
                         <livewire:switch-team />

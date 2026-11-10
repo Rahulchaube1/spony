@@ -13,6 +13,6 @@
             <li>The application is stopped, still deploying, or has crashed.</li>
             <li>The application health check is failing.</li>
         </ul>
-        <a href="https://coolify.io/docs/troubleshoot/applications/no-available-server" rel="noopener noreferrer">Read the troubleshooting guide</a>
+        <a href="#" rel="noopener noreferrer">Read the troubleshooting guide</a>
     </section>
 @endsection

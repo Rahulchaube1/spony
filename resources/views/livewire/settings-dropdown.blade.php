@@ -179,13 +179,11 @@
                                     <div class="mb-4 flex items-start gap-4">
                                         <div class="min-w-0 flex-1">
                                             <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-                                                <a :href="`https://github.com/coollabsio/coolify/releases/tag/${entry.tag_name}`"
-                                                    target="_blank" rel="noopener noreferrer"
-                                                    class="inline-flex min-w-0 items-center gap-1.5 text-sm font-semibold text-black hover:text-accent dark:text-fg"
+                                                <span
+                                                    class="inline-flex min-w-0 items-center gap-1.5 text-sm font-semibold text-black dark:text-fg"
                                                     x-show="entry.title">
                                                     <span class="truncate" x-text="entry.title"></span>
-                                                    <x-external-link />
-                                                </a>
+                                                </span>
                                                 <span x-show="entry.tag_name === '{{ $currentVersion }}'"
                                                     class="rounded-md bg-success/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-success">
                                                     Current

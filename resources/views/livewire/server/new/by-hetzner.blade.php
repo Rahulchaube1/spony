@@ -7,9 +7,8 @@
                 :tokens="$available_tokens" />
             <p class="text-[11px] text-neutral-500 dark:text-fg-faint">
                 New to Hetzner?
-                <a href="https://coolify.io/hetzner" target="_blank"
-                    class="font-medium text-coollabs hover:underline dark:text-brand-light">Create an account</a>
-                through Coolify's affiliate link.
+                <a href="https://www.hetzner.com" target="_blank"
+                    class="font-medium text-coollabs hover:underline dark:text-brand-light">Create an account</a>.
             </p>
         </div>
     @elseif ($current_step === 2)

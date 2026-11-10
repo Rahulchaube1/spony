@@ -467,39 +467,39 @@
                         databaseLinks: {
                             postgresql: {
                                 docs: 'https://www.postgresql.org/docs/',
-                                website: 'https://www.postgresql.org/?ref=coolify.io'
+                                website: 'https://www.postgresql.org/?ref=vyntra'
                             },
                             mysql: {
                                 docs: 'https://dev.mysql.com/doc/',
-                                website: 'https://www.mysql.com/?ref=coolify.io'
+                                website: 'https://www.mysql.com/?ref=vyntra'
                             },
                             mariadb: {
                                 docs: 'https://mariadb.com/kb/en/documentation/',
-                                website: 'https://mariadb.org/?ref=coolify.io'
+                                website: 'https://mariadb.org/?ref=vyntra'
                             },
                             redis: {
                                 docs: 'https://redis.io/docs/latest/',
-                                website: 'https://redis.io/?ref=coolify.io'
+                                website: 'https://redis.io/?ref=vyntra'
                             },
                             keydb: {
                                 docs: 'https://docs.keydb.dev/',
-                                website: 'https://keydb.dev/?ref=coolify.io'
+                                website: 'https://keydb.dev/?ref=vyntra'
                             },
                             dragonfly: {
                                 docs: 'https://www.dragonflydb.io/docs',
-                                website: 'https://www.dragonflydb.io/?ref=coolify.io'
+                                website: 'https://www.dragonflydb.io/?ref=vyntra'
                             },
                             mongodb: {
                                 docs: 'https://www.mongodb.com/docs/',
-                                website: 'https://www.mongodb.com/?ref=coolify.io'
+                                website: 'https://www.mongodb.com/?ref=vyntra'
                             },
                             clickhouse: {
                                 docs: 'https://clickhouse.com/docs',
-                                website: 'https://clickhouse.com/?ref=coolify.io'
+                                website: 'https://clickhouse.com/?ref=vyntra'
                             },
                             sqlite: {
                                 docs: 'https://sqlite.org/docs.html',
-                                website: 'https://sqlite.org/?ref=coolify.io'
+                                website: 'https://sqlite.org/?ref=vyntra'
                             }
                         },
                         docLinkCache: {}, // Cache resolved doc URLs: { serviceName: url | null }
@@ -537,8 +537,7 @@
                             return normalized.replace(/-(with|without)-.+$/, '');
                         },
                         coolifyDocsUrl(service) {
-                            const baseName = service.docsSlug || this.extractBaseServiceName(service.name);
-                            return 'https://coolify.io/docs/services/' + baseName;
+                            return null;
                         },
                         officialDocsUrl(service) {
                             return service.documentation || null;

@@ -311,7 +311,7 @@
                                     @endif
                                     <x-forms.listbox id="isBuildServerEnabled" label="Builder selection"
                                         onChange="instantSave" :options="$buildServerOptions"
-                                        helper="Build your application on a dedicated build server. If several build servers are connected, Coolify picks an available one automatically. {{ $buildServerFallbackPolicy }} More info in the <a href='https://coolify.io/docs/knowledge-base/server/build-server' class='underline' target='_blank'>documentation</a>."
+                                        helper="Build your application on a dedicated build server. If several build servers are connected, Coolify picks an available one automatically. {{ $buildServerFallbackPolicy }} More info in the <a href='#' class='underline' target='_blank'>documentation</a>."
                                         x-bind:disabled="!canUpdate" />
                                 </div>
                             @endif
@@ -401,7 +401,7 @@
                     @if ($application->destination->server->isSwarm())
                         @if ($application->build_pack !== 'dockerimage')
                             <div>Docker Swarm requires the image to be available in a registry. More info <a
-                                    class="underline" href="https://coolify.io/docs/knowledge-base/docker/registry"
+                                    class="underline" href="#"
                                     target="_blank">here</a>.</div>
                         @endif
                     @endif
@@ -591,7 +591,7 @@
 
                 <x-application.settings-section id="container-section" title="Container" helper="Options and labels applied to the container when it starts.">
                     <x-forms.input
-                        helper="You can add custom docker run options that will be used when your container is started.<br>Note: Not all options are supported, as they could mess up Coolify's automation and could cause bad experience for users.<br><br>Check the <a class='underline dark:text-white' href='https://coolify.io/docs/knowledge-base/docker/custom-commands'>docs.</a>"
+                        helper="You can add custom docker run options that will be used when your container is started.<br>Note: Not all options are supported, as they could mess up Coolify's automation and could cause bad experience for users.<br><br>Check the <a class='underline dark:text-white' href='#'>docs.</a>"
                         placeholder="--cap-add SYS_ADMIN --device=/dev/fuse --security-opt apparmor:unconfined --ulimit nofile=1024:1024 --tmpfs /run:rw,noexec,nosuid,size=65536k --hostname=myapp"
                         id="customDockerRunOptions" label="Custom Docker options" x-bind:disabled="!canUpdate" />
                 <x-application.settings-subsection id="container-labels-section" title="Labels">

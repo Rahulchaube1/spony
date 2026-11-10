@@ -28,11 +28,7 @@
                     </x-forms.button>
                 </div>
                 <p class="mt-2 text-xs text-neutral-500 dark:text-fg-dim">
-                    Need a sample? Browse
-                    <a class="font-medium text-coollabs hover:underline dark:text-brand-light"
-                        href="https://github.com/coollabsio/coolify-examples/" target="_blank">
-                        Coolify Examples
-                    </a>.
+                    Enter any public Git repository URL (e.g. GitHub, GitLab, Bitbucket).
                 </p>
             </div>
         </section>

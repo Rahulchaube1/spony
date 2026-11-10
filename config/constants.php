@@ -38,8 +38,8 @@ return [
     ],
 
     'urls' => [
-        'docs' => 'https://coolify.io/docs',
-        'contact' => 'https://coolify.io/docs/contact',
+        'docs' => env('APP_URL', 'https://vyntra.everestqai.com'),
+        'contact' => env('APP_URL', 'https://vyntra.everestqai.com'),
     ],
 
     'services' => [

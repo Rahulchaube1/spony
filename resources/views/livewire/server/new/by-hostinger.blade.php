@@ -7,10 +7,9 @@
                 :tokens="$available_tokens" />
             <p class="text-[11px] text-neutral-500 dark:text-fg-faint">
                 New to Hostinger?
-                <a href="https://www.hostinger.com/vps/coolify-hosting?ref=coolify.io" target="_blank"
+                <a href="https://www.hostinger.com/vps" target="_blank"
                     rel="noopener noreferrer"
-                    class="font-medium text-coollabs hover:underline dark:text-brand-light">Create an account</a>
-                through Coolify's affiliate link.
+                    class="font-medium text-coollabs hover:underline dark:text-brand-light">Create an account</a>.
             </p>
         </div>
     @elseif ($current_step === 2)

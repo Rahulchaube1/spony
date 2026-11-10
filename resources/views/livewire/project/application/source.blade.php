@@ -24,7 +24,7 @@
             </x-slot:actions>
 
             <div class="grid gap-4 lg:grid-cols-2">
-                <x-forms.input placeholder="coollabsio/coolify-example" id="gitRepository" label="Repository"
+                <x-forms.input placeholder="vyntra/example-app" id="gitRepository" label="Repository"
                     canGate="update" :canResource="$application" />
                 <x-forms.input placeholder="main" id="gitBranch" label="Branch" canGate="update"
                     :canResource="$application" />

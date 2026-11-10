@@ -24,7 +24,7 @@
                         </x-process-dialog>
                     @endif
                     @if (!$isCloudflareTunnelsEnabled)
-                        <a class="button" href="https://coolify.io/docs/knowledge-base/cloudflare/tunnels/server-ssh"
+                        <a class="button" href="#"
                             target="_blank">
                             Documentation
                             <x-external-link />

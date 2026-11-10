@@ -30,7 +30,7 @@
                     <div x-show="$wire.update_channel === 'custom'" @if ($update_channel !== 'custom') x-cloak @endif>
                         <x-forms.input required id="update_custom_tag" label="Image tag" placeholder="pr-1234"
                             x-bind:required="$wire.update_channel === 'custom'"
-                            helper="A tag of ghcr.io/coollabsio/coolify, such as pr-1234 for the build of pull request 1234." />
+                            helper="A tag for custom image builds, such as pr-1234." />
                     </div>
                     <div x-show="$wire.update_channel !== 'custom'" @if ($update_channel === 'custom') x-cloak @endif
                         class="hidden lg:block"></div>
