@@ -7,8 +7,8 @@
     <div class="auth-shell-content">
         <div class="auth-card">
             <div class="auth-card-heading">
-                <div class="flex items-center justify-center mb-3">
-                    <img src="/vyntra-logo.png" alt="Vyntra" class="h-10 w-auto max-w-[140px] object-contain" />
+                <div class="flex items-center justify-center mb-4">
+                    <img src="/vyntra-logo.png" alt="Vyntra" class="size-14 object-contain rounded-xl shadow-md" />
                 </div>
                 <h1>{{ $title }}</h1>
                 @if ($description)

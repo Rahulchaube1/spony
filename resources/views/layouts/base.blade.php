@@ -401,16 +401,15 @@
         }
     @endphp
     <title>{{ $name }}{{ $title ?? 'Vyntra' }}</title>
-    @env('local')
-        <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32" />
-        <link rel="icon" href="{{ asset('vyntra-logo.svg') }}" type="image/svg+xml" />
-    @else
-        <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32" />
-        <link rel="icon" href="{{ asset('vyntra-logo.svg') }}" type="image/svg+xml" />
-    @endenv
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('vyntra-logo.svg') }}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('icon-192.png') }}" />
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('icon-512.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
     <meta name="apple-mobile-web-app-title" content="Vyntra" />
+    <meta name="msapplication-TileImage" content="{{ asset('icon-512.png') }}" />
+    <meta name="msapplication-TileColor" content="#000000" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     <script>
