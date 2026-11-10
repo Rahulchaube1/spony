@@ -92,6 +92,14 @@ class Index extends Component
             return redirect()->route('dashboard');
         }
 
+        if (request()->query('action') === 'skip') {
+            return $this->skipBoarding();
+        }
+
+        if (request()->query('action') === 'continue') {
+            return $this->explanation();
+        }
+
         $this->minDockerVersion = str(config('constants.docker.minimum_required_version'))->before('.');
         $this->privateKeyName = generate_random_name();
         $this->remoteServerName = generate_random_name();

@@ -36,16 +36,17 @@
 
                     <div class="mt-5 flex flex-col items-center gap-4">
                         <x-forms.button class="w-full justify-center sm:w-auto sm:min-w-36" wire:click="explanation"
+                            onclick="if(typeof Livewire === 'undefined' || !Livewire.all().length) window.location.href='/onboarding?action=continue'"
                             isHighlighted>
                             Continue
                         </x-forms.button>
                         <div
                             class="inline-flex flex-wrap items-center justify-center gap-0.5 rounded-lg border border-neutral-200 bg-neutral-50 p-0.5 dark:border-white/[0.08] dark:bg-white/[0.05]">
-                            <button type="button" wire:click="skipBoarding"
+                            <a href="/onboarding?action=skip" wire:click.prevent="skipBoarding"
                                 class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-medium text-neutral-500 transition-colors hover:bg-white hover:text-coollabs dark:text-fg-dim dark:hover:bg-white/[0.06] dark:hover:text-brand-light">
                                 <x-reicon name="arrow-right" class="size-3.5 shrink-0" />
                                 Skip setup
-                            </button>
+                            </a>
                             <x-modal-input title="Need Help?">
                                 <x-slot:content>
                                     <button type="button"
@@ -615,11 +616,11 @@
                         </x-forms.button>
                         <div
                             class="inline-flex flex-wrap items-center justify-center gap-0.5 rounded-lg border border-neutral-200 bg-neutral-50 p-0.5 dark:border-white/[0.08] dark:bg-white/[0.05]">
-                            <button type="button" wire:click="skipBoarding"
+                            <a href="/onboarding?action=skip" wire:click.prevent="skipBoarding"
                                 class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-medium text-neutral-500 transition-colors hover:bg-white hover:text-coollabs dark:text-fg-dim dark:hover:bg-white/[0.06] dark:hover:text-brand-light">
                                 <x-reicon name="arrow-right" class="size-3.5 shrink-0" />
                                 Go to dashboard
-                            </button>
+                            </a>
                             <x-modal-input title="Need Help?">
                                 <x-slot:content>
                                     <button type="button"

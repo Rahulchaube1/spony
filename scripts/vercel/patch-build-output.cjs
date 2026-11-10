@@ -66,4 +66,15 @@ for (const configPath of configs) {
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
 }
 
+// Ensure static public/livewire assets are in .vercel/output/static/livewire
+const staticLivewireDir = path.resolve(__dirname, '../../.vercel/output/static/livewire');
+const publicLivewireDir = path.resolve(__dirname, '../../public/livewire');
+if (fs.existsSync(publicLivewireDir)) {
+  if (fs.existsSync(staticLivewireDir)) {
+    fs.rmSync(staticLivewireDir, { recursive: true, force: true });
+  }
+  fs.cpSync(publicLivewireDir, staticLivewireDir, { recursive: true });
+  console.log('Copied public/livewire to .vercel/output/static/livewire successfully!');
+}
+
 console.log('All configs patched with native HTTP launcher successfully!');

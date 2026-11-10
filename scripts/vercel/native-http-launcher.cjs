@@ -73,6 +73,14 @@ async function ensurePhpServer() {
 
 // Native Node.js HTTP request listener for Vercel
 async function handler(req, res) {
+  // Buffer body chunks in case req emits while waiting for ensurePhpServer
+  const chunks = [];
+  let reqEnded = false;
+  req.on("data", (chunk) => chunks.push(chunk));
+  req.on("end", () => {
+    reqEnded = true;
+  });
+
   try {
     await ensurePhpServer();
 
@@ -105,7 +113,17 @@ async function handler(req, res) {
       res.end(`PHP Proxy Error: ${err.message}`);
     });
 
-    req.pipe(proxyReq);
+    if (chunks.length > 0) {
+      for (const chunk of chunks) {
+        proxyReq.write(chunk);
+      }
+    }
+    if (reqEnded) {
+      proxyReq.end();
+    } else {
+      req.on("data", (chunk) => proxyReq.write(chunk));
+      req.on("end", () => proxyReq.end());
+    }
   } catch (err) {
     console.error("🐘 Handler initialization error:", err);
     res.statusCode = 500;
