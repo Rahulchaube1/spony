@@ -63,11 +63,26 @@ class OauthController extends Controller
             $errorCode = match (true) {
                 $e instanceof OauthLoginException => $e->userMessageKey,
                 $e instanceof HttpException => 'auth.failed.oauth',
-                default => 'auth.failed.callback',
+                default => null,
             };
 
-            $translated = __($errorCode);
-            $message = ($translated !== $errorCode) ? $translated : $e->getMessage();
+            $message = null;
+            if ($errorCode) {
+                $translated = __($errorCode);
+                $message = ($translated !== $errorCode) ? $translated : null;
+            }
+
+            if (empty($message)) {
+                if ($e instanceof \GuzzleHttp\Exception\RequestException && $e->hasResponse()) {
+                    $responseBody = (string) $e->getResponse()->getBody();
+                    $decoded = json_decode($responseBody, true);
+                    $message = data_get($decoded, 'error_description')
+                        ?: data_get($decoded, 'error')
+                        ?: $e->getMessage();
+                } else {
+                    $message = $e->getMessage() ?: __('auth.failed.callback');
+                }
+            }
 
             return redirect()->route('login')->withErrors([$message ?: 'Authentication failed. Please try again.']);
         }

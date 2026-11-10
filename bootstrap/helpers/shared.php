@@ -614,7 +614,7 @@ function find_resource_destination_for_current_team(?string $uuid): StandaloneDo
 
 function showBoarding(): bool
 {
-    if (isDev()) {
+    if (isDev() || env('VERCEL') || isset($_SERVER['VERCEL'])) {
         return false;
     }
 

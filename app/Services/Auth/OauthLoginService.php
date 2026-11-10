@@ -54,7 +54,7 @@ class OauthLoginService
             return $user;
         }
 
-        Auth::login($user);
+        Auth::login($user, remember: true);
         auditLog('auth.user.oauth_login_succeeded', [
             'team_id' => $team?->id,
             'resource' => 'user',

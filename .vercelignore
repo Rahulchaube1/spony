@@ -1,15 +1,2 @@
-/vendor
-/node_modules
-/tests
-/storage
-/.git
-/.dev
-/.dev-instances
-/_data
-/_testing_hosts
-/_volumes
-/marketing
-/.phpunit.cache
-/.phpunit.result.cache
-/docs
-/docker
+node_modules
+.git
