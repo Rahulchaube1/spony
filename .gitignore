@@ -62,4 +62,5 @@ ref
 /marketing/**/*.mov
 /marketing/**/*.webm
 /marketing/**/build/
+.vercel/
 
