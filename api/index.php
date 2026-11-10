@@ -9,6 +9,15 @@ putenv('APP_DEBUG=true');
 $_ENV['APP_DEBUG'] = 'true';
 $_SERVER['APP_DEBUG'] = 'true';
 
+$incomingHost = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? null;
+if (!empty($incomingHost)) {
+    $proto = ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? 'https') === 'http' ? 'http' : 'https';
+    $dynamicAppUrl = $proto . '://' . $incomingHost;
+    putenv("APP_URL={$dynamicAppUrl}");
+    $_ENV['APP_URL'] = $dynamicAppUrl;
+    $_SERVER['APP_URL'] = $dynamicAppUrl;
+}
+
 putenv('DB_CONNECTION=sqlite');
 $_ENV['DB_CONNECTION'] = 'sqlite';
 $_SERVER['DB_CONNECTION'] = 'sqlite';

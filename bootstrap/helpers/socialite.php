@@ -14,6 +14,11 @@ use SocialiteProviders\Manager\Config;
  */
 function oauth_default_redirect_uri(string $provider): string
 {
+    $currentHost = request()->getSchemeAndHttpHost();
+    if (filled($currentHost) && ! str_contains($currentHost, 'localhost')) {
+        return rtrim($currentHost, '/').route('auth.callback', $provider, false);
+    }
+
     return rtrim(base_url(), '/').route('auth.callback', $provider, false);
 }
 
@@ -21,7 +26,10 @@ function get_socialite_provider(string $provider)
 {
     $oauth_setting = OauthSetting::firstWhere('provider', $provider);
 
-    if (! filled($oauth_setting->redirect_uri)) {
+    $currentHost = request()->getSchemeAndHttpHost();
+    if (filled($currentHost) && ! str_contains($currentHost, 'localhost')) {
+        $oauth_setting->redirect_uri = rtrim($currentHost, '/').route('auth.callback', $provider, false);
+    } elseif (! filled($oauth_setting->redirect_uri)) {
         $oauth_setting->redirect_uri = oauth_default_redirect_uri($provider);
     }
 
