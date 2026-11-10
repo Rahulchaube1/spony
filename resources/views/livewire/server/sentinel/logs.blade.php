@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Sentinel Logs | Vedaix
+        Sentinel Logs | Vyntra
     </x-slot>
     <livewire:server.navbar :server="$server" />
     <div

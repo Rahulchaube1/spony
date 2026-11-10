@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Shared Variables | Vedaix
+        Shared Variables | Vyntra
     </x-slot>
 
     @php

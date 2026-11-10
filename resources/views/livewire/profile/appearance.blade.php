@@ -1,4 +1,4 @@
 <div>
-    <x-slot:title>Appearance | Vedaix</x-slot>
+    <x-slot:title>Appearance | Vyntra</x-slot>
     <x-theme-controls />
 </div>

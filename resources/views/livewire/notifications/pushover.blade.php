@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Pushover Notifications | Vedaix
+        Pushover Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

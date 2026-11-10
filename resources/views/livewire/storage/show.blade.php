@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($storage, 'name')->limit(20) }} | Storage | Vedaix
+        {{ data_get_str($storage, 'name')->limit(20) }} | Storage | Vyntra
     </x-slot>
 
     @php

@@ -376,16 +376,16 @@
     <meta name="robots" content="noindex">
     <meta name="theme-color" content="#101010" id="theme-color-meta" />
     <meta name="color-scheme" content="dark light" />
-    <meta name="Description" content="Vedaix: An open-source & self-hostable Cloud Platform" />
+    <meta name="Description" content="Vyntra: An open-source & self-hostable Cloud Platform" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vedaix" />
-    <meta name="twitter:description" content="Vedaix Cloud Platform" />
+    <meta name="twitter:title" content="Vyntra" />
+    <meta name="twitter:description" content="Vyntra Cloud Platform" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Vedaix" />
-    <meta property="og:description" content="Vedaix Cloud Platform" />
-    <meta property="og:site_name" content="Vedaix" />
-    <meta property="og:image" content="{{ asset('vedaix-logo.png') }}" />
+    <meta property="og:title" content="Vyntra" />
+    <meta property="og:description" content="Vyntra Cloud Platform" />
+    <meta property="og:site_name" content="Vyntra" />
+    <meta property="og:image" content="{{ asset('vyntra-logo.png') }}" />
     @use('App\Models\InstanceSettings')
     @php
 
@@ -400,7 +400,7 @@
             }
         }
     @endphp
-    <title>{{ $name }}{{ $title ?? 'Vedaix' }}</title>
+    <title>{{ $name }}{{ $title ?? 'Vyntra' }}</title>
     @env('local')
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="32x32" />
         <link rel="icon" href="{{ asset('coolify-logo.svg') }}" type="image/svg+xml" />
@@ -410,7 +410,7 @@
     @endenv
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" />
     <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
-    <meta name="apple-mobile-web-app-title" content="Vedaix" />
+    <meta name="apple-mobile-web-app-title" content="Vyntra" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     <script>

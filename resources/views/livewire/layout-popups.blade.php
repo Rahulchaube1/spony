@@ -160,11 +160,11 @@
                             </div>
                             <div class="min-w-0">
                                 <h2 class="text-[15px]! leading-5! font-semibold! text-black dark:text-fg">
-                                    Love Vedaix? Support our work.
+                                    Love Vyntra? Support our work.
                                 </h2>
                                 <p x-show="!reminders.sponsorship.compact" x-transition.opacity
                                     class="mt-1 text-[12px] leading-5 text-neutral-500 dark:text-fg-dim">
-                                    Vedaix is profitable thanks to <span
+                                    Vyntra is profitable thanks to <span
                                         class="font-semibold text-coollabs dark:text-brand-light">you</span>. Your support
                                     helps us build more features and keep improving the project.
                                 </p>

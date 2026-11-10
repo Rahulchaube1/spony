@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ $destination->name }} | Destination | Vedaix
+        {{ $destination->name }} | Destination | Vyntra
     </x-slot>
 
     @php

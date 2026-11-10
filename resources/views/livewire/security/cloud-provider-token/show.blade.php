@@ -22,7 +22,7 @@
         </form>
     @else
     <x-slot:title>
-        {{ $cloudProviderToken->name }} | Cloud Tokens | Vedaix
+        {{ $cloudProviderToken->name }} | Cloud Tokens | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

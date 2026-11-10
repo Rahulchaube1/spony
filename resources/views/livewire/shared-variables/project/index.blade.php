@@ -1,5 +1,5 @@
 <div>
-    <x-slot:title>Project Variables | Vedaix</x-slot>
+    <x-slot:title>Project Variables | Vyntra</x-slot>
 
     <x-shared-variables.layout>
         <div class="w-full" x-data="{

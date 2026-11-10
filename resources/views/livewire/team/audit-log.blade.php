@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Team Audit Log | Vedaix
+        Team Audit Log | Vyntra
     </x-slot>
 
     <x-team.settings-layout>

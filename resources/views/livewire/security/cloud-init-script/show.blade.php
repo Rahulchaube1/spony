@@ -17,7 +17,7 @@
         </form>
     @else
     <x-slot:title>
-        {{ $cloudInitScript->name }} | Cloud-Init Scripts | Vedaix
+        {{ $cloudInitScript->name }} | Cloud-Init Scripts | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

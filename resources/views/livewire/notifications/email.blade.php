@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Notifications | Vedaix
+        Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

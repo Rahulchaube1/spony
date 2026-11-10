@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Instance Backup | Vedaix
+        Instance Backup | Vyntra
     </x-slot>
 
     <x-settings.layout>

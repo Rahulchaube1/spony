@@ -1,6 +1,6 @@
 <div class="h-full">
     <x-slot:title>
-        Deploy canvas | Vedaix
+        Deploy canvas | Vyntra
     </x-slot>
     {{-- The app's icons, cloned by resources/js/canvas/deploy/Icon.svelte. --}}
     <template data-deploy-canvas-icons>

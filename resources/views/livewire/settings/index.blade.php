@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Settings | Vedaix
+        Settings | Vyntra
     </x-slot>
 
     <x-settings.layout>
@@ -16,7 +16,7 @@
                     ])>
                         <x-forms.input canGate="update" :canResource="$settings" id="fqdn" label="URL"
                             helper="Enter the full URL of the instance (for example, https://dashboard.example.com).<br><br><span class='text-coollabs dark:text-brand-light'>Important:</span> Include <b>https://</b> to secure the dashboard with HTTPS.<br><br>Passkeys are tied to this domain. If you change it, users must add their passkeys again."
-                            placeholder="https://vedaix.yourdomain.com" />
+                            placeholder="https://vyntra.yourdomain.com" />
                     </div>
 
                     @if (str_starts_with(strtolower($fqdn ?? ''), 'https://'))
@@ -24,7 +24,7 @@
                             <x-forms.listbox canGate="update" :canResource="$settings"
                                 id="is_dashboard_force_https_enabled" label="Redirect HTTP to HTTPS"
                                 onChange="submit"
-                                helper="Disable only when Cloudflare Tunnel or another proxy connects to Vedaix over HTTP. Keep enabled when Cloudflare uses Full or Full (Strict) SSL."
+                                helper="Disable only when Cloudflare Tunnel or another proxy connects to Vyntra over HTTP. Keep enabled when Cloudflare uses Full or Full (Strict) SSL."
                                 :options="[
                                     ['value' => true, 'label' => 'Enabled'],
                                     ['value' => false, 'label' => 'Disabled'],
@@ -33,7 +33,7 @@
                     @endif
 
                     <x-forms.input canGate="update" :canResource="$settings" id="instance_name" label="Name"
-                        placeholder="Vedaix" helper="Custom name for this Vedaix instance." />
+                        placeholder="Vyntra" helper="Custom name for this Vyntra instance." />
 
                     {{-- Use a searchable listbox so the label row (h-4) and control height match
                          sibling x-forms.input fields (Name). onChange auto-saves like before. --}}
@@ -57,7 +57,7 @@
                 <div class="grid gap-4 lg:grid-cols-2">
                     <x-forms.input canGate="update" :canResource="$settings" id="public_ipv4" type="password"
                         label="Instance public IPv4"
-                        helper="Vedaix detects this address on start only when the field is empty. Set it when the detected address is wrong. Detect looks it up again and saves it."
+                        helper="Vyntra detects this address on start only when the field is empty. Set it when the detected address is wrong. Detect looks it up again and saves it."
                         placeholder="1.2.3.4" autocomplete="new-password" />
                     <x-forms.input canGate="update" :canResource="$settings" id="public_ipv6" type="password"
                         label="Instance public IPv6"

@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        TLS Certificates | Vedaix
+        TLS Certificates | Vyntra
     </x-slot>
     <livewire:server.navbar :server="$server" />
     <div

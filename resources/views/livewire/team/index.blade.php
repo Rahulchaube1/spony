@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Teams | Vedaix
+        Teams | Vyntra
     </x-slot>
 
     <x-team.settings-layout>

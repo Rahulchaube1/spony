@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Keys & Tokens | Vedaix
+        Keys & Tokens | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

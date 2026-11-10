@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Sources | Vedaix
+        Sources | Vyntra
     </x-slot>
 
     <div class="application-settings-form w-full">

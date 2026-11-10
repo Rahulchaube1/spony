@@ -59,7 +59,7 @@
     },
 }">
     <x-slot:title>
-        {{ data_get_str($application, 'name')->limit(10) }} > Backups | Vedaix
+        {{ data_get_str($application, 'name')->limit(10) }} > Backups | Vyntra
     </x-slot>
     <livewire:project.shared.configuration-checker :resource="$application" />
     <livewire:project.application.heading :application="$application"

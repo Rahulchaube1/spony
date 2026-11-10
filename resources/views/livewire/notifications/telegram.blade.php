@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Telegram Notifications | Vedaix
+        Telegram Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

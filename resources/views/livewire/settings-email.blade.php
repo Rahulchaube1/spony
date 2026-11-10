@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Transactional Email | Vedaix
+        Transactional Email | Vyntra
     </x-slot>
 
     <x-settings.layout>

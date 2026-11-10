@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Team Image Scanning | Vedaix
+        Team Image Scanning | Vyntra
     </x-slot>
 
     <x-team.settings-layout>

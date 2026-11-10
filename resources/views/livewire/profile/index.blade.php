@@ -6,7 +6,7 @@
     },
 }"
     @close-email-change-modal.window="emailModalOpen = false">
-    <x-slot:title>Profile | Vedaix</x-slot>
+    <x-slot:title>Profile | Vyntra</x-slot>
     <div class="mt-8 flex w-full max-w-none flex-col gap-6 lg:mt-3">
 
         <form wire:submit="submit">

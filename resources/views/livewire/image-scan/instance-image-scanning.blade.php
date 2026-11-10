@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Image Scanning | Vedaix
+        Image Scanning | Vyntra
     </x-slot>
 
     <x-settings.layout>

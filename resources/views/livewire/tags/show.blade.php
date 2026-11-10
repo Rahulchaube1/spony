@@ -1,6 +1,6 @@
 <div class="application-settings-form w-full">
     <x-slot:title>
-        Tags | Vedaix
+        Tags | Vyntra
     </x-slot>
 
     <header @class([

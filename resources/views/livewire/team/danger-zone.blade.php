@@ -8,7 +8,7 @@
         ];
     @endphp
     <x-slot:title>
-        Team Danger Zone | Vedaix
+        Team Danger Zone | Vyntra
     </x-slot>
 
     <x-team.settings-layout>

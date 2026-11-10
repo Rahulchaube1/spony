@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Team Variables | Vedaix
+        Team Variables | Vyntra
     </x-slot>
 
     <x-shared-variables.editor :resource="$team" :variables="$team->environment_variables"

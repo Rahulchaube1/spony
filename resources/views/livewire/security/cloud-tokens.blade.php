@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Cloud Tokens | Vedaix
+        Cloud Tokens | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

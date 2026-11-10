@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > Swarm | Vedaix
+        {{ data_get_str($server, 'name')->limit(10) }} > Swarm | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

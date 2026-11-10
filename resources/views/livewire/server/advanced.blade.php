@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > Advanced | Vedaix
+        {{ data_get_str($server, 'name')->limit(10) }} > Advanced | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > Patching | Vedaix
+        {{ data_get_str($server, 'name')->limit(10) }} > Patching | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

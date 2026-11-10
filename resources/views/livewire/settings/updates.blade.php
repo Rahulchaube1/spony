@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Update Settings | Vedaix
+        Update Settings | Vyntra
     </x-slot>
 
     <x-settings.layout>

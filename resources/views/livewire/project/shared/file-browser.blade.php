@@ -3,7 +3,7 @@
         <div wire:poll.3s="checkDownloads" class="hidden"></div>
     @endif
     <x-slot:title>
-        {{ data_get_str($resource, 'name')->limit(10) }} > Files | Vedaix
+        {{ data_get_str($resource, 'name')->limit(10) }} > Files | Vyntra
     </x-slot>
 
     @if ($type === 'application')

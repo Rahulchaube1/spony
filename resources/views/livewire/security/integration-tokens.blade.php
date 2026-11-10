@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Integration Tokens | Vedaix
+        Integration Tokens | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

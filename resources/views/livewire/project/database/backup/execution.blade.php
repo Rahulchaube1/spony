@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($database, 'name')->limit(10) }} > Backup | Vedaix
+        {{ data_get_str($database, 'name')->limit(10) }} > Backup | Vyntra
     </x-slot>
 
     <livewire:project.database.heading :database="$database" />

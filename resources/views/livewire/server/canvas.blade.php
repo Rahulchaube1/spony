@@ -1,6 +1,6 @@
 <div class="flex h-full flex-col">
     <x-slot:title>
-        {{ $server ? $server->name.' > Canvas' : 'Servers > Canvas' }} | Vedaix
+        {{ $server ? $server->name.' > Canvas' : 'Servers > Canvas' }} | Vyntra
     </x-slot>
     @if ($server)
         {{-- Status, proxy actions and the server name dock in the top bar. --}}

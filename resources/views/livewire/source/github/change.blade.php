@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ $github_app->name ?: 'GitHub App' }} | Sources | Vedaix
+        {{ $github_app->name ?: 'GitHub App' }} | Sources | Vyntra
     </x-slot>
 
     @if (session('error'))

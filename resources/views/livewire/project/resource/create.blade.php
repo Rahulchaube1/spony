@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($project, 'name')->limit(10) }} > New | Vedaix
+        {{ data_get_str($project, 'name')->limit(10) }} > New | Vyntra
     </x-slot>
     @if ($pendingType)
         <div wire:init="createResource" class="mx-auto flex max-w-md flex-col items-center pt-24 text-center">

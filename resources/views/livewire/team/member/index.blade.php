@@ -59,7 +59,7 @@
     }
 }">
     <x-slot:title>
-        Team Members | Vedaix
+        Team Members | Vyntra
     </x-slot>
 
     <x-team.settings-layout>

@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ $name ?: 'GitLab App' }} | Sources | Vedaix
+        {{ $name ?: 'GitLab App' }} | Sources | Vyntra
     </x-slot>
 
     @if ($isConnected)

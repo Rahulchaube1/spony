@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > GitHub Runners | Vedaix
+        {{ data_get_str($server, 'name')->limit(10) }} > GitHub Runners | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

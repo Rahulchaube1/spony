@@ -34,7 +34,7 @@ const ignoredPrefixes = [
   'user/changelogs/',
   'user/node_modules/',
   'user/docker/',
-  'user/vedaix-cloud/'
+  'user/vyntra-cloud/'
 ];
 
 for (const configPath of configs) {

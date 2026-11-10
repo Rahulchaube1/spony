@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Webhook Notifications | Vedaix
+        Webhook Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

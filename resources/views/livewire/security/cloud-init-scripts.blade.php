@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Cloud-Init Scripts | Vedaix
+        Cloud-Init Scripts | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

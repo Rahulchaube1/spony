@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Discord Notifications | Vedaix
+        Discord Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

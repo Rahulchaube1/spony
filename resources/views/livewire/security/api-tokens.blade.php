@@ -11,7 +11,7 @@
     },
 }" @api-token-issued.window="issuedToken = $event.detail.token">
     <x-slot:title>
-        API Tokens | Vedaix
+        API Tokens | Vyntra
     </x-slot>
 
     <x-security.settings-layout>

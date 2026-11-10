@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Slack Notifications | Vedaix
+        Slack Notifications | Vyntra
     </x-slot>
 
     <x-notification.settings-layout>

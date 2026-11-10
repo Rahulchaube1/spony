@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Authentication | Vedaix
+        Authentication | Vyntra
     </x-slot>
 
     <x-settings.layout>

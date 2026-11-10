@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(10) }} > Log Drains | Vedaix
+        {{ data_get_str($server, 'name')->limit(10) }} > Log Drains | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

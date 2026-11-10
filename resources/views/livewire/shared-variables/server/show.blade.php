@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Server Variables | Vedaix
+        Server Variables | Vyntra
     </x-slot>
 
     <x-shared-variables.editor :resource="$server"

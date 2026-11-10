@@ -15,7 +15,7 @@
         }
     })">
     <x-slot:title>
-        Security | Vedaix
+        Security | Vyntra
     </x-slot>
 
     <div class="min-w-0">

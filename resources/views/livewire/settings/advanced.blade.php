@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Advanced Settings | Vedaix
+        Advanced Settings | Vyntra
     </x-slot>
 
     <x-settings.layout>

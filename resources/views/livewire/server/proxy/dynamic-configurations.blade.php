@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Proxy Dynamic Configuration | Vedaix
+        Proxy Dynamic Configuration | Vyntra
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

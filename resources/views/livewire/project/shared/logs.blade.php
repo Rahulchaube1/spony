@@ -1,6 +1,6 @@
 <div class="runtime-logs-page">
     <x-slot:title>
-        {{ data_get_str($resource, 'name')->limit(10) }} > Logs | Vedaix
+        {{ data_get_str($resource, 'name')->limit(10) }} > Logs | Vyntra
     </x-slot>
 
     @if ($type === 'application')

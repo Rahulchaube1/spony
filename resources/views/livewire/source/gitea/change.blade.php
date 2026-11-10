@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ $name ?: 'Gitea / Forgejo App' }} | Sources | Vedaix
+        {{ $name ?: 'Gitea / Forgejo App' }} | Sources | Vyntra
     </x-slot>
 
     @if ($isConnected)

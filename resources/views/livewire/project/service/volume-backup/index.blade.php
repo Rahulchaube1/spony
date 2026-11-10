@@ -70,7 +70,7 @@
     },
 }">
     <x-slot:title>
-        {{ data_get_str($service, 'name')->limit(10) }} > Backups | Vedaix
+        {{ data_get_str($service, 'name')->limit(10) }} > Backups | Vyntra
     </x-slot>
     <livewire:project.service.heading :service="$service" :parameters="$parameters" :query="request()->query()"
         wire:key="service-heading-volume-backup-index" />

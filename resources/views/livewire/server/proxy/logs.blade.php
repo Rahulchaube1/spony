@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Proxy Logs | Vedaix
+        Proxy Logs | Vyntra
     </x-slot>
     <livewire:server.navbar :server="$server" />
     <div

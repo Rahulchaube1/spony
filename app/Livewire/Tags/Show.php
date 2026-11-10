@@ -14,7 +14,7 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Tags | Vedaix')]
+#[Title('Tags | Vyntra')]
 class Show extends Component
 {
     use AuthorizesRequests;

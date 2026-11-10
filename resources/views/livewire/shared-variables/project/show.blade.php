@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Project Variables | Vedaix
+        Project Variables | Vyntra
     </x-slot>
 
     <x-shared-variables.editor :resource="$project" :variables="$project->environment_variables"
