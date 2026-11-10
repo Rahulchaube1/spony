@@ -1390,7 +1390,7 @@ html:not(.dark) .application-console-shell[data-console-theme="system"] .termina
     /* Cards sit one step above the #0a0a0a canvas. The top bar uses the canvas,
        not this color. The sidebar uses --color-sidebar. */
     --color-card: #121212;
-    --color-sidebar: #120e1a;
+    --color-sidebar: #181818;
     /* Dark surface ladder in hex (sRGB), not oklch: oklch lightness compresses
        to near-black below ~15%, so oklch(15%) rendered as sRGB 11 and cards
        could not lift off the content canvas (sRGB 10). These give clear,
@@ -1462,7 +1462,7 @@ html[data-theme="custom"] {
     --t-bg: var(--theme-bg);
     --t-text: var(--theme-text);
     --t-light: var(--theme-light);
-    --theme-base-color: oklch(49.65% 0.2709 289.33);
+    --theme-base-color: #ffffff;
     --theme-bright-color: color-mix(in srgb, var(--theme-base-color) 85%, oklch(100% 0 0));
     --theme-scrollbar-thumb: color-mix(in srgb, var(--theme-bright-color) 70%, var(--theme-accent-foreground));
     /* Accent text and icons on the page. applyCustomTheme() computes a color with
@@ -6754,50 +6754,61 @@ html.dark .app-sidebar .menu-item:not(:hover):not(:focus-visible):not(.menu-item
     opacity: 0;
 }
 
-/* Default dark theme sidebar: purple-black with a faint brand wash and lavender
-   tiles, text, and edges. A custom theme keeps the neutral rules above. */
+/* VS Code Dark Modern Sidebar: pure neutral charcoal, clean borders, zero purple wash */
 html.dark:not([data-theme="custom"]) .app-sidebar nav.sidebar-nav,
 html.dark:not([data-theme="custom"]) .mobile-sidebar-sheet [role="dialog"] {
-    background-image: linear-gradient(180deg, rgb(107 22 237 / 0.09), transparent 520px);
-    border-right-color: rgb(163 145 255 / 0.10);
-    --color-nav-text: oklch(80% 0.02 300);
-    --color-nav-muted: oklch(58% 0.04 300);
+    background-image: none !important;
+    background-color: #181818 !important;
+    border-right-color: #2b2b2b !important;
+    --color-nav-text: #cccccc;
+    --color-nav-muted: #858585;
 }
 
-/* Same color as the top of the sidebar gradient, so the brand and sidebar read as one surface. */
+/* Same color as sidebar */
 html.dark:not([data-theme="custom"]) .app-topbar-brand {
-    background-image: linear-gradient(rgb(107 22 237 / 0.09), rgb(107 22 237 / 0.09));
-    border-right-color: rgb(163 145 255 / 0.10);
+    background-image: none !important;
+    background-color: #181818 !important;
+    border-right-color: #2b2b2b !important;
 }
 
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) .menu-search {
-    background-color: rgb(163 145 255 / 0.06) !important;
-    box-shadow: inset 0 0 0 1px rgb(163 145 255 / 0.10) !important;
+    background-color: #1f1f1f !important;
+    box-shadow: inset 0 0 0 1px #333333 !important;
+    color: #cccccc !important;
 }
 
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) .menu-search:hover {
-    background-color: rgb(163 145 255 / 0.10) !important;
+    background-color: #252526 !important;
+    box-shadow: inset 0 0 0 1px #3c3c3c !important;
 }
 
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) .menu-search kbd {
-    border-color: rgb(163 145 255 / 0.18) !important;
+    border-color: #333333 !important;
+    background-color: #252526 !important;
+    color: #858585 !important;
 }
 
-/* Group dividers use the lavender sidebar edge: the neutral hairline looks olive on the purple-black sidebar. */
+/* Group dividers: neutral dark border */
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) .sidebar-nav :is([class~="dark:border-white/[0.06]"], [class~="dark:border-white/[0.07]"], [class~="dark:border-white/[0.08]"]) {
-    border-color: rgb(163 145 255 / 0.10) !important;
+    border-color: #2b2b2b !important;
 }
 
-/* Admin keeps the neutral tile unless it is the current page. */
+/* Sidebar navigation icons: neutral VS Code tile */
 html.dark:not([data-theme="custom"]):where(:not([data-nav-items="flat"])) :is(.app-sidebar, .mobile-sidebar-sheet) :is(.menu-item, .menu-subitem):not(.sidebar-toggle):not(.menu-search):not(.nav-admin):not(.menu-item-active):not(.menu-subitem-active) .menu-item-icon,
 html.dark:not([data-theme="custom"]):where(:not([data-nav-items="flat"])) .app-sidebar nav.sidebar-collapsed .menu-search.menu-item .menu-item-icon {
-    border-color: rgb(163 145 255 / 0.13);
-    background: rgb(107 22 237 / 0.07);
-    color: #b9adff;
+    border-color: #2e2e2e !important;
+    background: #202020 !important;
+    color: #cccccc !important;
+}
+
+html.dark:not([data-theme="custom"]):where(:not([data-nav-items="flat"])) :is(.app-sidebar, .mobile-sidebar-sheet) :is(.menu-item, .menu-subitem):not(.sidebar-toggle):not(.menu-search):not(.nav-admin):not(.menu-item-active):not(.menu-subitem-active):hover .menu-item-icon {
+    border-color: #3e3e3e !important;
+    background: #282828 !important;
+    color: #ffffff !important;
 }
 
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) nav:not(.sidebar-collapsed) .nav-section {
-    color: rgba(255, 255, 255, 0.6);
+    color: #858585 !important;
 }
 
 /* Sidebar account menu: neutral dark modern like VS Code. */

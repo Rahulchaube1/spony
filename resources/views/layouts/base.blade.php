@@ -10,6 +10,7 @@
         // only #rgb / #rrggbb and fall back to the default color for anything else.
         window.normalizeThemeColor = (color) => {
             const hex = String(color ?? '').trim().replace(/^#/, '').toLowerCase();
+            if (hex === '6b16ed' || hex === '7c3aed' || hex === '8b5cf6' || hex === '7317ff') return '#ffffff';
             if (/^[a-f\d]{6}$/.test(hex)) return `#${hex}`;
             if (/^[a-f\d]{3}$/.test(hex)) return `#${hex.replace(/./g, '$&$&')}`;
             return '#ffffff';
@@ -156,14 +157,27 @@
         window.storedUiScale = () => ['80', '90', '100'].includes(localStorage.uiScale) ? localStorage.uiScale : '100';
         window.applyStoredTheme = () => {
             const root = document.documentElement;
-            const theme = localStorage.theme === 'purple' ? 'custom' : (localStorage.theme || 'dark');
+            if (localStorage.theme === 'purple' || localStorage.themeColor === '#6b16ed' || localStorage.themeColor === '6b16ed') {
+                localStorage.theme = 'dark';
+                localStorage.themeColor = '#ffffff';
+                delete localStorage.customTheme;
+            }
+            const theme = localStorage.theme || 'dark';
             root.dataset.navStyle = localStorage.navStyle === 'floating' ? 'floating' : 'default';
             root.dataset.navItems = localStorage.navItems === 'flat' ? 'flat' : '3d';
             root.dataset.uiScale = window.storedUiScale();
             localStorage.theme = theme;
             if (localStorage.themeColor) localStorage.themeColor = window.normalizeThemeColor(localStorage.themeColor);
             if (theme === 'custom') {
-                window.applyCustomTheme(window.storedCustomTheme());
+                const custom = window.storedCustomTheme();
+                if (custom && (custom.accent === '#6b16ed' || custom.sidebar === '#1a0f2d' || custom.sidebar === '#120e1a')) {
+                    localStorage.theme = 'dark';
+                    localStorage.themeColor = '#ffffff';
+                    delete localStorage.customTheme;
+                    window.applyStoredTheme();
+                    return;
+                }
+                window.applyCustomTheme(custom);
                 return;
             }
 
@@ -171,9 +185,10 @@
             root.classList.toggle('dark', isDark);
             root.dataset.theme = isDark ? 'dark' : 'light';
             delete root.dataset.sidebarScheme;
-            root.style.setProperty('--theme-base-color', window.hexToOklch(localStorage.themeColor));
-            root.style.setProperty('--theme-accent-foreground', window.themeAccentForeground(localStorage.themeColor));
-            document.querySelector('meta[name=theme-color]')?.setAttribute('content', isDark ? '#101010' : '#ffffff');
+            const activeColor = window.normalizeThemeColor(localStorage.themeColor || '#ffffff');
+            root.style.setProperty('--theme-base-color', window.hexToOklch(activeColor));
+            root.style.setProperty('--theme-accent-foreground', window.themeAccentForeground(activeColor));
+            document.querySelector('meta[name=theme-color]')?.setAttribute('content', isDark ? '#121212' : '#ffffff');
         };
         // Time lines for chart tooltips. By default only the browser time zone is shown;
         // the "Chart times" option on the Appearance page adds the UTC time.
