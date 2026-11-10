@@ -106,14 +106,14 @@ class AppServiceProvider extends ServiceProvider
     private function configurePasswords(): void
     {
         Password::defaults(function () {
-            return App::isProduction()
+            return (App::isProduction() && ! env('VERCEL') && ! isset($_SERVER['VERCEL']))
                 ? Password::min(8)
                     ->mixedCase()
                     ->letters()
                     ->numbers()
                     ->symbols()
                     ->uncompromised()
-                : Password::min(8)->letters();
+                : Password::min(8);
         });
     }
 

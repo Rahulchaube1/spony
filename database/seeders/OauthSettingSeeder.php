@@ -27,6 +27,7 @@ class OauthSettingSeeder extends Seeder
                 'authentik',
                 'infomaniak',
                 'zitadel',
+                'auth0',
             ]);
 
             $isOauthSeeded = OauthSetting::count() > 0;

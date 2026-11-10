@@ -103,10 +103,10 @@
                                 label="Hosted domain" />
                         @endif
 
-                        @if (in_array($provider, ['authentik', 'clerk', 'zitadel', 'gitlab'], true))
+                        @if (in_array($provider, ['authentik', 'clerk', 'zitadel', 'gitlab', 'auth0'], true))
                             <x-forms.input canGate="update" :canResource="$settings"
-                                id="oauth_settings_map.{{ $provider }}.base_url" label="Base URL"
-                                :required="in_array($provider, ['authentik', 'clerk'], true)" />
+                                id="oauth_settings_map.{{ $provider }}.base_url" label="Base URL (e.g. https://dev-xxx.us.auth0.com)"
+                                :required="in_array($provider, ['authentik', 'clerk', 'auth0'], true)" />
                         @endif
 
                     </div>

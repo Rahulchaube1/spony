@@ -36,7 +36,7 @@ function get_socialite_provider(string $provider)
         return Socialite::driver('azure')->setConfig($azure_config);
     }
 
-    if ($provider == 'authentik' || $provider == 'clerk') {
+    if ($provider == 'authentik' || $provider == 'clerk' || $provider == 'auth0') {
         $authentik_clerk_config = new Config(
             $oauth_setting->client_id,
             $oauth_setting->client_secret,

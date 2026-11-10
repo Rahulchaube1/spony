@@ -20,6 +20,7 @@ final class OauthIdentityIssuer
      * @var array<string, string|null>
      */
     public const array SELF_HOSTABLE_PROVIDERS = [
+        'auth0' => null,
         'authentik' => null,
         'clerk' => null,
         'gitlab' => 'https://gitlab.com',

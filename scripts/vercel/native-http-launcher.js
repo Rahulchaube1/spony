@@ -88,7 +88,12 @@ async function handler(req, res) {
         headers: forwardHeaders
       },
       (proxyRes) => {
-        res.writeHead(proxyRes.statusCode, proxyRes.headers);
+        const headers = { ...proxyRes.headers };
+        if (headers['set-cookie']) {
+          res.setHeader('Set-Cookie', headers['set-cookie']);
+          delete headers['set-cookie'];
+        }
+        res.writeHead(proxyRes.statusCode, headers);
         proxyRes.pipe(res);
       }
     );

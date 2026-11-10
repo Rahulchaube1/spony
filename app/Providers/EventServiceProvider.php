@@ -17,6 +17,7 @@ use Laravel\Fortify\Events\TwoFactorAuthenticationEnabled;
 use Laravel\Passkeys\Events\PasskeyDeleted;
 use Laravel\Passkeys\Events\PasskeyRegistered;
 use Laravel\Passkeys\Events\PasskeyVerified;
+use SocialiteProviders\Auth0\Auth0ExtendSocialite;
 use SocialiteProviders\Authentik\AuthentikExtendSocialite;
 use SocialiteProviders\Azure\AzureExtendSocialite;
 use SocialiteProviders\Clerk\ClerkExtendSocialite;
@@ -30,6 +31,7 @@ class EventServiceProvider extends ServiceProvider
 {
     protected $listen = [
         SocialiteWasCalled::class => [
+            Auth0ExtendSocialite::class.'@handle',
             AzureExtendSocialite::class.'@handle',
             AuthentikExtendSocialite::class.'@handle',
             ClerkExtendSocialite::class.'@handle',

@@ -21,19 +21,19 @@
 
             <form action="/login" method="POST" class="flex flex-col gap-4">
                 @csrf
-                @env('local')
-                    <x-forms.input value="test@example.com" type="email"
+                @if (app()->environment('local') || env('VERCEL') || isset($_SERVER['VERCEL']))
+                    <x-forms.input value="{{ old('email', 'test@example.com') }}" type="email"
                         autocomplete="{{ $passkeys_available ? 'email webauthn' : 'email' }}" name="email" required
                         autofocus label="{{ __('input.email') }}" />
                     <x-forms.input value="password" type="password" :copyable="false" autocomplete="current-password" name="password"
                         required label="{{ __('input.password') }}" />
                 @else
-                    <x-forms.input type="email" name="email"
+                    <x-forms.input type="email" name="email" value="{{ old('email') }}"
                         autocomplete="{{ $passkeys_available ? 'email webauthn' : 'email' }}" required autofocus
                         label="{{ __('input.email') }}" />
                     <x-forms.input type="password" :copyable="false" name="password" autocomplete="current-password" required
                         label="{{ __('input.password') }}" />
-                @endenv
+                @endif
 
                 <div class="flex justify-end">
                     @if (is_transactional_emails_enabled())
