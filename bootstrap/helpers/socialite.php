@@ -26,9 +26,8 @@ function get_socialite_provider(string $provider)
 {
     $oauth_setting = OauthSetting::firstWhere('provider', $provider);
 
-    $currentHost = request()->getSchemeAndHttpHost();
-    if (filled($currentHost) && ! str_contains($currentHost, 'localhost')) {
-        $oauth_setting->redirect_uri = rtrim($currentHost, '/').route('auth.callback', $provider, false);
+    if ($provider === 'google') {
+        $oauth_setting->redirect_uri = config('services.google.redirect') ?: 'https://vyntra.everestqai.com/auth/google/callback';
     } elseif (! filled($oauth_setting->redirect_uri)) {
         $oauth_setting->redirect_uri = oauth_default_redirect_uri($provider);
     }
