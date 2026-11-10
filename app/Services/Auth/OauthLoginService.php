@@ -127,7 +127,17 @@ class OauthLoginService
                         'last_login_at' => now(),
                     ]);
 
-                    return $identity->user;
+                    if ($identity->user) {
+                        return $identity->user;
+                    }
+
+                    $user = User::whereEmail($email)->first();
+                    if (! $user) {
+                        $user = $this->createUser($oauthUser->name ?: $email, $email, $oauthSetting);
+                    }
+                    $identity->update(['user_id' => $user->id]);
+
+                    return $user;
                 }
 
                 $user = User::whereEmail($email)->first();
@@ -176,7 +186,9 @@ class OauthLoginService
                 return $user;
             });
         } catch (UniqueConstraintViolationException $exception) {
-            return OauthIdentity::where($identityKey)->first()?->user ?? throw $exception;
+            $identity = OauthIdentity::where($identityKey)->first();
+
+            return $identity?->user ?? User::whereEmail($email)->first() ?? throw $exception;
         }
     }
 
@@ -253,7 +265,17 @@ class OauthLoginService
                         'last_login_at' => now(),
                     ]);
 
-                    return $identity->user;
+                    if ($identity->user) {
+                        return $identity->user;
+                    }
+
+                    $user = User::whereEmail($email)->first();
+                    if (! $user) {
+                        $user = $this->createUser($oauthUser->name ?: $email, $email, $oauthSetting);
+                    }
+                    $identity->update(['user_id' => $user->id]);
+
+                    return $user;
                 }
 
                 $user = User::whereEmail($email)->first();
@@ -295,7 +317,9 @@ class OauthLoginService
                 return $user;
             });
         } catch (UniqueConstraintViolationException $exception) {
-            return OauthIdentity::where($identityKey)->first()?->user ?? throw $exception;
+            $identity = OauthIdentity::where($identityKey)->first();
+
+            return $identity?->user ?? User::whereEmail($email)->first() ?? throw $exception;
         }
     }
 
