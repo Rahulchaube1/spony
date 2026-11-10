@@ -273,7 +273,7 @@ class User extends Authenticatable implements PasskeyUser, SendsEmail
         $team = [
             'name' => $this->name."'s Team",
             'personal_team' => true,
-            'show_boarding' => true,
+            'show_boarding' => false,
         ];
         if ($this->id === 0) {
             $team['id'] = 0;

@@ -42,7 +42,7 @@ class OauthController extends Controller
             }
 
             return redirect('/');
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->logCallbackFailure($provider, $e);
 
             $errorCode = match (true) {
@@ -51,7 +51,10 @@ class OauthController extends Controller
                 default => 'auth.failed.callback',
             };
 
-            return redirect()->route('login')->withErrors([__($errorCode)]);
+            $translated = __($errorCode);
+            $message = ($translated !== $errorCode) ? $translated : $e->getMessage();
+
+            return redirect()->route('login')->withErrors([$message ?: 'Authentication failed. Please try again.']);
         }
     }
 

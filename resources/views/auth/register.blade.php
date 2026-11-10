@@ -79,14 +79,14 @@ $email = getOldOrLocal('email', 'test3@example.com');
                 <div class="auth-divider"><span>Or sign up with</span></div>
                 <div class="flex flex-col gap-2">
                     @foreach ($enabled_oauth_providers as $provider_setting)
-                        <x-forms.button class="w-full justify-center" type="button"
-                            onclick="document.location.href='/auth/{{ $provider_setting->provider }}/redirect'">
+                        <a href="/auth/{{ $provider_setting->provider }}/redirect"
+                            class="button w-full justify-center flex items-center gap-2 text-center py-2 px-4 rounded transition-colors no-underline">
                             @if ($provider_setting->provider !== 'oidc')
-                                <img class="size-5 shrink-0 dark:invert"
+                                <img class="size-5 shrink-0"
                                     src="{{ asset('svgs/'.$provider_setting->provider.'.svg') }}" alt="" aria-hidden="true">
                             @endif
-                            Sign up with {{ $provider_setting->provider === 'google' ? 'Google' : ($provider_setting->provider === 'auth0' ? 'Auth0' : $provider_setting->loginLabel()) }}
-                        </x-forms.button>
+                            <span>Sign up with {{ $provider_setting->provider === 'google' ? 'Google' : ($provider_setting->provider === 'auth0' ? 'Auth0' : $provider_setting->loginLabel()) }}</span>
+                        </a>
                     @endforeach
                 </div>
             @endif
