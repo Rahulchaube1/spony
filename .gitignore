@@ -62,3 +62,10 @@ ref
 /marketing/**/*.mov
 /marketing/**/*.webm
 /marketing/**/build/
+
+# Vedaix Cloud Next.js, Go and Rust build artifacts
+vedaix-cloud/web/node_modules/
+vedaix-cloud/web/.next/
+vedaix-cloud/services/edge-rust/target/
+vedaix-cloud/services/runner-go/vedaix-runner
+

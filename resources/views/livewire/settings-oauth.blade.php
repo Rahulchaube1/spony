@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Authentication | Coolify
+        Authentication | Vedaix
     </x-slot>
 
     <x-settings.layout>

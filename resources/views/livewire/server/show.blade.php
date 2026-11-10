@@ -1,7 +1,7 @@
 <div x-data
     x-init="@if ($server->hetzner_server_id && $server->cloudProviderToken && !$hetznerServerStatus) $wire.checkHetznerServerStatus(); @endif @if ($server->vultr_instance_id && $server->cloudProviderToken) $wire.checkVultrInstanceStatus(); @endif @if ($server->digitalocean_droplet_id && $server->cloudProviderToken && !$digitalOceanDropletStatus) $wire.checkDigitalOceanDropletStatus(); @endif @if ($server->hostinger_virtual_machine_id && $server->cloudProviderToken && !$hostingerVirtualMachineStatus) $wire.checkHostingerVirtualMachineStatus(); @endif">
     <x-slot:title>
-        {{ data_get_str($server, 'name')->limit(24) }} | Server | Coolify
+        {{ data_get_str($server, 'name')->limit(24) }} | Server | Vedaix
     </x-slot>
 
     <livewire:server.navbar :server="$server" />

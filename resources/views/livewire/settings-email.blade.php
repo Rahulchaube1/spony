@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Transactional Email | Coolify
+        Transactional Email | Vedaix
     </x-slot>
 
     <x-settings.layout>

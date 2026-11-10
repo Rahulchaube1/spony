@@ -1,6 +1,6 @@
 <div class="h-full">
     <x-slot:title>
-        {{ $project->name }} > Canvas | Coolify
+        {{ $project->name }} > Canvas | Vedaix
     </x-slot>
     <div data-environment-canvas data-endpoint="/projects/{{ $project->uuid }}/canvas"
         data-empty="No resources in this project yet"

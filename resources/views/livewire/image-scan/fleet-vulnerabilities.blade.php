@@ -15,7 +15,7 @@
         }
     })">
     <x-slot:title>
-        Security | Coolify
+        Security | Vedaix
     </x-slot>
 
     <div class="min-w-0">

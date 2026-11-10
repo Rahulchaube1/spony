@@ -11,7 +11,7 @@
     },
 }" @api-token-issued.window="issuedToken = $event.detail.token">
     <x-slot:title>
-        API Tokens | Coolify
+        API Tokens | Vedaix
     </x-slot>
 
     <x-security.settings-layout>

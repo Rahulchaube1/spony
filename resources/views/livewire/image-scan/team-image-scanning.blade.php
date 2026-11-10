@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Team Image Scanning | Coolify
+        Team Image Scanning | Vedaix
     </x-slot>
 
     <x-team.settings-layout>

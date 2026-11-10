@@ -7,6 +7,9 @@
     <div class="auth-shell-content">
         <div class="auth-card">
             <div class="auth-card-heading">
+                <div class="flex items-center justify-center mb-3">
+                    <img src="/vedaix-logo.png" alt="Vedaix" class="h-10 w-auto max-w-[140px] object-contain" />
+                </div>
                 <h1>{{ $title }}</h1>
                 @if ($description)
                     <p>{{ $description }}</p>

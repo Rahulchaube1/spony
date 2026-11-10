@@ -23,7 +23,7 @@ $serverListboxOptions = array_merge(
 ?>
 <div class="flex w-full min-w-0 flex-col gap-6">
     <x-slot:title>
-        Metrics | Coolify
+        Metrics | Vedaix
     </x-slot>
 
     {{-- Header --}}

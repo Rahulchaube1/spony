@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ $name ?: 'Gitea / Forgejo App' }} | Sources | Coolify
+        {{ $name ?: 'Gitea / Forgejo App' }} | Sources | Vedaix
     </x-slot>
 
     @if ($isConnected)

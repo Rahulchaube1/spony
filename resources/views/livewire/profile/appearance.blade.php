@@ -1,4 +1,4 @@
 <div>
-    <x-slot:title>Appearance | Coolify</x-slot>
+    <x-slot:title>Appearance | Vedaix</x-slot>
     <x-theme-controls />
 </div>

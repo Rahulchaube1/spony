@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Teams | Coolify
+        Teams | Vedaix
     </x-slot>
 
     <x-team.settings-layout>

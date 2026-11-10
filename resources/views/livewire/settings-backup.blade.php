@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Instance Backup | Coolify
+        Instance Backup | Vedaix
     </x-slot>
 
     <x-settings.layout>

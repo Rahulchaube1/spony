@@ -59,7 +59,7 @@
     }
 }">
     <x-slot:title>
-        Team Members | Coolify
+        Team Members | Vedaix
     </x-slot>
 
     <x-team.settings-layout>
