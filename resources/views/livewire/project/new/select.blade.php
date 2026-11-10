@@ -129,7 +129,7 @@
 
             {{-- Vercel-style GitHub Deployment Quick Action --}}
             <article role="button" tabindex="0" @click="setType('github-deploy')" @keydown.enter.self.prevent="setType('github-deploy')"
-                x-show="search === ''"
+                x-show="search === '' || search.toLowerCase().includes('git') || search.toLowerCase().includes('deploy') || search.toLowerCase().includes('vercel') || search.toLowerCase().includes('repo')"
                 class="mt-3 flex cursor-pointer items-center gap-4 rounded-xl border border-neutral-200 bg-white p-4 shadow-[0_1px_2px_rgb(0_0_0/0.05)] transition-colors hover:border-neutral-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent dark:border-white/[0.08] dark:bg-white/[0.05] dark:shadow-none dark:hover:border-white/[0.14]">
                 <div
                     class="flex size-11 shrink-0 items-center justify-center rounded-lg border border-neutral-200 bg-neutral-900 text-white dark:border-white/[0.08] dark:bg-white dark:text-black">

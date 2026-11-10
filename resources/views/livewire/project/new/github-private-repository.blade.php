@@ -19,14 +19,19 @@
         </section>
     @elseif ($current_step === 'github_apps')
         <section class="application-settings-section">
-            <div class="application-settings-section-header">
+            <div class="application-settings-section-header flex flex-wrap items-center justify-between gap-2">
                 <div>
                     <h2>Choose GitHub App</h2>
                     <p>Select the installation that can access the repository you want to deploy.</p>
                 </div>
-                <x-modal-input buttonTitle="+ Add GitHub App" title="New GitHub App" closeOutside="false">
-                    <livewire:source.github.create />
-                </x-modal-input>
+                <div class="flex items-center gap-3">
+                    <a href="{{ route('project.resource.create', array_merge($parameters ?? [], ['type' => 'github-deploy'])) }}" class="text-xs font-semibold text-neutral-800 hover:text-black dark:text-neutral-200 dark:hover:text-white underline">
+                        Deploy with GitHub (Vercel-style) &rarr;
+                    </a>
+                    <x-modal-input buttonTitle="+ Add GitHub App" title="New GitHub App" closeOutside="false">
+                        <livewire:source.github.create />
+                    </x-modal-input>
+                </div>
             </div>
             <div class="application-settings-section-body p-0!">
                 @foreach ($github_apps as $ghapp)
