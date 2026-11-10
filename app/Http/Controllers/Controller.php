@@ -157,7 +157,7 @@ class Controller extends BaseController
         [$user, $team, $invitation, $alreadyMember] = $acceptedInvitation;
 
         Auth::login($user);
-        session(['currentTeam' => $team]);
+        session(['currentTeam' => \App\Data\SessionTeam::fromTeam($team)]);
         $this->auditInvitationAccepted($user, $invitation, $alreadyMember);
 
         return redirect()->route('dashboard');

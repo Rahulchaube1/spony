@@ -38,7 +38,7 @@ class OauthLoginService
             $team = $user->recreate_personal_team();
         }
         if ($team) {
-            session(['currentTeam' => $team]);
+            session(['currentTeam' => \App\Data\SessionTeam::fromTeam($team)]);
         } else {
             session()->forget('currentTeam');
         }

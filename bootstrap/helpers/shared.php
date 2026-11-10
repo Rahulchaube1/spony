@@ -664,7 +664,7 @@ function refreshSession(?Team $team = null): void
     Cache::remember('user:'.Auth::id().':team:'.$team->id, 3600, function () use ($team) {
         return $team;
     });
-    session(['currentTeam' => $team]);
+    session(['currentTeam' => \App\Data\SessionTeam::fromTeam($team)]);
 
     // Persist the active team so it can be restored after logout/login — but
     // never while an admin is impersonating, so viewing another user's account

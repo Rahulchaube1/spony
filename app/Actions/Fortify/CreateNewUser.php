@@ -91,7 +91,9 @@ class CreateNewUser implements CreatesNewUsers
             }
         }
         // Set session variable
-        session(['currentTeam' => $team]);
+        if ($team) {
+            session(['currentTeam' => \App\Data\SessionTeam::fromTeam($team)]);
+        }
 
         return $user;
     }

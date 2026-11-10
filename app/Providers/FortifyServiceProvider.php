@@ -100,7 +100,7 @@ class FortifyServiceProvider extends ServiceProvider
                     $team = $user->recreate_personal_team();
                 }
                 if ($team) {
-                    session(['currentTeam' => $team]);
+                    session(['currentTeam' => \App\Data\SessionTeam::fromTeam($team)]);
                 }
                 // Otherwise (multiple teams, no stored choice) leave the session
                 // team unset so the user is sent to the team-selection screen.
