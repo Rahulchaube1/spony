@@ -60,7 +60,7 @@ foreach ($storageDirs as $dir) {
 // Copy pre-populated SQLite database to writable /tmp if missing or empty
 $sourceDb = __DIR__ . '/../database/database.sqlite';
 $targetDb = '/tmp/database.sqlite';
-if (file_exists($sourceDb) && (!file_exists($targetDb) || filesize($targetDb) === 0)) {
+if (file_exists($sourceDb) && (!file_exists($targetDb) || filesize($targetDb) === 0 || filemtime($sourceDb) > filemtime($targetDb))) {
     @copy($sourceDb, $targetDb);
     @chmod($targetDb, 0666);
 }
@@ -75,5 +75,5 @@ try {
     require __DIR__ . '/../public/index.php';
 } catch (\Throwable $e) {
     header('Content-Type: text/plain', true, 500);
-    echo "VEDAIX APPLICATION ERROR: " . $e->getMessage() . "\n\nFile: " . $e->getFile() . ":" . $e->getLine() . "\n\nTrace:\n" . $e->getTraceAsString();
+    echo "VYNTRA APPLICATION ERROR: " . $e->getMessage() . "\n\nFile: " . $e->getFile() . ":" . $e->getLine() . "\n\nTrace:\n" . $e->getTraceAsString();
 }

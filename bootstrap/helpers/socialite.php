@@ -67,7 +67,7 @@ function get_socialite_provider(string $provider)
         $google_config = new Config(
             $oauth_setting->client_id ?: config('services.google.client_id'),
             $oauth_setting->client_secret ?: config('services.google.client_secret'),
-            $oauth_setting->redirect_uri
+            $oauth_setting->redirect_uri ?: config('services.google.redirect')
         );
 
         $driver = Socialite::driver('google')->setConfig($google_config);
