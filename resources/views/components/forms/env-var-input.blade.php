@@ -239,7 +239,7 @@
             @readonly($readonly)
             @if ($modelBinding !== 'null')
                 wire:model="{{ $modelBinding }}"
-                wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+                wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]"
             @endif
             wire:loading.attr="disabled"
             wire:target.except="fetchSecretManagerKeys"

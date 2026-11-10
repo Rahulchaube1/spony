@@ -43,18 +43,19 @@
        values in .dark. */
     --color-severity-high: oklch(56% 0.135 50);
     --color-severity-medium: oklch(55% 0.1 235);
-    --color-coollabs-50: oklch(96.33% 0.0206 301.15);
-    --color-coollabs: oklch(49.65% 0.2709 289.33);
-    --color-coollabs-100: oklch(52.34% 0.287 289.16);
-    --color-coollabs-200: oklch(43.76% 0.2369 289.82);
-    --color-coollabs-300: oklch(38.04% 0.2031 290.47);
-    /* coolLabs brand purple. Primary actions, focus, and active navigation
-       use these in both themes. Warning yellow is not an accent. */
-    --color-brand: #6b16ed;
-    --color-brand-hover: #7317ff;
-    --color-brand-press: #5a12c7;
-    --color-brand-depth: #4a0fa3;
-    --color-brand-light: #a391ff;
+    --color-coollabs-50: #f5f5f5;
+    --color-coollabs: #ffffff;
+    --color-coollabs-100: #e5e5e5;
+    --color-coollabs-200: #d4d4d4;
+    --color-coollabs-300: #a3a3a3;
+    /* Brand monochrome. Primary actions, focus, and active navigation
+       use pure black, white and gray like VS Code. */
+    --color-brand: #ffffff;
+    --color-brand-hover: #e5e5e5;
+    --color-brand-press: #d4d4d4;
+    --color-brand-depth: #262626;
+    --color-brand-light: #ffffff;
+    --color-brand-foreground: #000000;
     --color-coolgray-100: oklch(20.9% 0 0);
     --color-coolgray-200: oklch(24.35% 0 0);
     --color-coolgray-300: oklch(26.03% 0 0);
@@ -80,8 +81,8 @@
     /* Tertiary text. Raised from #6e6e74 (3.78:1 on base, failed WCAG AA)
        to #7e7e84 so 13-14px text clears 4.5:1 on the dark surface ladder. */
     --color-fg-faint: oklch(59.31% 0 0);
-    --color-accent: oklch(49.65% 0.2709 289.33);
-    --color-accent-foreground: oklch(100.0% 0 0);
+    --color-accent: #ffffff;
+    --color-accent-foreground: #000000;
     --color-hairline: oklch(100.0% 0 0 / 0.08);
     --color-nav-text: oklch(43.86% 0 0);
     --color-nav-muted: oklch(51.03% 0 0);
@@ -118,33 +119,36 @@
 }
 
 .dark .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled) {
-    --button-depth-color: color-mix(in srgb, var(--color-brand) 35%, transparent);
-    background-color: color-mix(in srgb, var(--color-brand) 14%, transparent);
-    border-color: color-mix(in srgb, var(--color-brand-light) 24%, transparent);
-    color: oklch(from var(--color-brand-light) 93.5% 0.03 h);
+    --button-depth-color: rgba(0, 0, 0, 0.4);
+    background-color: #252526;
+    border-color: #3c3c3c;
+    color: #e5e5e5;
 }
 
 .dark .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled):hover {
-    background-color: color-mix(in srgb, var(--color-brand) 18%, transparent);
-    border-color: color-mix(in srgb, var(--color-brand-light) 34%, transparent);
+    background-color: #2d2d2d;
+    border-color: #4a4a4a;
+    color: #ffffff;
 }
 
 .dark .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled) svg {
-    color: var(--color-brand-light);
+    color: #cccccc;
     opacity: 1;
 }
 
 .dark .button.button-highlighted:not(:disabled),
 .dark .button[isHighlighted]:not(:disabled) {
-    background: var(--color-brand);
-    border-color: transparent;
-    color: var(--color-brand-foreground);
-    --button-depth-color: var(--color-brand-depth);
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    --button-depth-color: #333333;
 }
 
 .dark .button.button-highlighted:not(:disabled):hover,
 .dark .button[isHighlighted]:not(:disabled):hover {
-    background: var(--color-brand-hover);
+    background: #e5e5e5;
+    border-color: #e5e5e5;
+    color: #000000;
 }
 
 .button.button-error:not(:disabled) {
@@ -2563,7 +2567,7 @@ html[data-theme="custom"]:not(.dark) :is(.application-settings-section, .applica
 
 .resource-heading-tabs-control:focus-visible .resource-heading-tabs-control-icon {
     box-shadow:
-        0 0 0 2px color-mix(in srgb, var(--color-coollabs, #6b16ed) 45%, transparent),
+        0 0 0 2px color-mix(in srgb, var(--color-coollabs, #ffffff) 45%, transparent),
         0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
@@ -6793,17 +6797,17 @@ html.dark:not([data-theme="custom"]):where(:not([data-nav-items="flat"])) .app-s
 }
 
 html.dark:not([data-theme="custom"]) :is(.app-sidebar, .mobile-sidebar-sheet) nav:not(.sidebar-collapsed) .nav-section {
-    color: rgb(163 145 255 / 0.55);
+    color: rgba(255, 255, 255, 0.6);
 }
 
-/* Sidebar account menu: the purple tint of the sidebar it opens from. */
+/* Sidebar account menu: neutral dark modern like VS Code. */
 html.dark:not([data-theme="custom"]) .listbox-panel.top-user-menu-panel-sidebar {
-    background: color-mix(in oklab, #6b16ed 10%, var(--coollabs-elevated));
-    border-color: rgb(163 145 255 / 0.22);
+    background: #1f1f1f;
+    border-color: #333333;
 }
 
 html.dark:not([data-theme="custom"]) .top-user-menu-panel-sidebar .listbox-option:hover {
-    background: rgb(163 145 255 / 0.10);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Custom theme sidebar. These rules come after the dark sidebar rules above, so they win. */
@@ -7121,8 +7125,8 @@ html.dark .project-card-stats-dot {
     html.dark .app-main [class*="dark:bg-white/[0.09]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: color-mix(in oklab, #fff 9%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:bg-white/[0.14]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: color-mix(in oklab, #fff 14%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:bg-white/[0.1]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: color-mix(in oklab, #fff 10%, var(--color-app)) !important; }
-    html.dark .app-main .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled):not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: color-mix(in srgb, var(--color-brand) 14%, var(--color-app)) !important; border-color: color-mix(in srgb, var(--color-brand-light) 24%, transparent) !important; color: oklch(from var(--color-brand-light) 93.5% 0.03 h) !important; }
-    html.dark .app-main .view-toggle:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: color-mix(in srgb, var(--color-brand) 6%, var(--color-app)) !important; border-color: color-mix(in srgb, var(--color-brand-light) 16%, transparent) !important; }
+    html.dark .app-main .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled):not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: #252526 !important; border-color: #3c3c3c !important; color: #e5e5e5 !important; }
+    html.dark .app-main .view-toggle:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) { background-color: #1f1f1f !important; border-color: #333333 !important; }
     html.dark .app-main [class*="dark:hover:bg-white/10"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 10%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:hover:bg-white/[0.025]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 2.5%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:hover:bg-white/[0.035]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 3.5%, var(--color-app)) !important; }
@@ -7134,7 +7138,7 @@ html.dark .project-card-stats-dot {
     html.dark .app-main [class*="dark:hover:bg-white/[0.08]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 8%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:hover:bg-white/[0.12]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 12%, var(--color-app)) !important; }
     html.dark .app-main [class*="dark:hover:bg-white/[0.1]"]:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in oklab, #fff 10%, var(--color-app)) !important; }
-    html.dark .app-main .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled):not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: color-mix(in srgb, var(--color-brand) 18%, var(--color-app)) !important; border-color: color-mix(in srgb, var(--color-brand-light) 34%, transparent) !important; }
+    html.dark .app-main .button:not(.button-highlighted):not(.button-error):not([isHighlighted]):not(:disabled):not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *):hover { background-color: #2e2e2e !important; border-color: #4a4a4a !important; color: #ffffff !important; }
 
     /* Collection shells are #121212. Same selector as the 5% mix, plus .rounded-xl, so it wins. */
     html.dark .app-main [class*="dark:bg-white/[0.05]"].rounded-xl:not(:is([class*="dark:bg-"]:not(.app-main), .button, .view-toggle, .application-settings-section, .application-settings-section-body, .box, .coolbox, .data-table, .resource-view, .empty-state, .loading-state-card, .runtime-log-shell, .logs-viewer) *) {

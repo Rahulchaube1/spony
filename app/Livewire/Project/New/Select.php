@@ -162,10 +162,18 @@ class Select extends Component
             ->all();
         $gitBasedApplications = [
             [
+                'id' => 'github-deploy',
+                'name' => 'Deploy with GitHub (Vercel-style)',
+                'description' => 'Deploy frontend, backend, or fullstack monorepos from GitHub in one click with framework presets, environment variables, and live deploys.',
+                'documentation' => 'https://github.com',
+                'logo' => resource_logo_url('github-app'),
+                'logoDark' => resource_logo_url('github-app-dark'),
+            ],
+            [
                 'id' => 'public',
                 'name' => 'Public Git Repository',
-                'description' => 'Deploy any public Git repository. Coolify builds it from source, no credentials required.',
-                'documentation' => 'https://coolify.io/docs/applications/ci-cd',
+                'description' => 'Deploy any public Git repository. Vyntra builds it from source, no credentials required.',
+                'documentation' => 'https://github.com',
                 'logo' => resource_logo_url('public-repo'),
             ],
             [

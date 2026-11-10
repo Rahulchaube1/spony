@@ -38,16 +38,16 @@
             <div class="relative" x-data="{ type: 'password' }" @success.window="type = 'password'">
                 <input x-cloak x-show="type === 'password'" value="{{ $value }}"
                     {{ $attributes->merge(['class' => $defaultClassInput]) }} @required($required)
-                    @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+                    @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]" @endif
                     wire:loading.attr="disabled"
                     type="{{ $type }}" @readonly($readonly) @disabled($disabled) id="{{ $htmlId }}"
                     name="{{ $name }}" placeholder="{{ $attributes->get('placeholder') }}"
                     aria-placeholder="{{ $attributes->get('placeholder') }}">
                 <textarea minlength="{{ $minlength }}" maxlength="{{ $maxlength }}" x-cloak x-show="type !== 'password'"
                     placeholder="{{ $placeholder }}" {{ $attributes->merge(['class' => $defaultClass]) }}
-                    @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+                    @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]"
                 @else
-            wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+            wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]" @endif
                     @disabled($disabled) @readonly($readonly) @required($required) id="{{ $htmlId }}"
                     name="{{ $name }}" name={{ $modelBinding }}
                     @if ($autofocus) x-ref="autofocusInput" @endif></textarea>
@@ -77,9 +77,9 @@
             <textarea minlength="{{ $minlength }}" maxlength="{{ $maxlength }}"
                 {{ $allowTab ? '@keydown.tab=handleKeydown' : '' }} placeholder="{{ $placeholder }}"
                 {{ !$spellcheck ? 'spellcheck=false' : '' }} {{ $attributes->merge(['class' => $defaultClass]) }}
-                @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+                @if ($realtimeValidation) wire:model.debounce.200ms="{{ $modelBinding }}" wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]"
         @else
-    wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+    wire:model={{ $value ?? $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]" @endif
                 @disabled($disabled) @readonly($readonly) @required($required) id="{{ $htmlId }}"
                 name="{{ $name }}" name={{ $modelBinding }}
                 @if ($autofocus) x-ref="autofocusInput" @endif></textarea>

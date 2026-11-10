@@ -59,10 +59,10 @@ function createApplicationTerminalTheme(accent, colors = {}) {
 }
 
 function customThemeAccent() {
-    const color = localStorage.getItem('themeColor') || '#6b16ed';
+    const color = localStorage.getItem('themeColor') || '#ffffff';
 
     if (!/^#[0-9a-f]{6}$/i.test(color)) {
-        return '#7c3aed';
+        return '#ffffff';
     }
 
     const channels = color.match(/[a-f\d]{2}/gi).map((channel) => (

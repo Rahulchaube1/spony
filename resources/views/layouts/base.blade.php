@@ -12,7 +12,7 @@
             const hex = String(color ?? '').trim().replace(/^#/, '').toLowerCase();
             if (/^[a-f\d]{6}$/.test(hex)) return `#${hex}`;
             if (/^[a-f\d]{3}$/.test(hex)) return `#${hex.replace(/./g, '$&$&')}`;
-            return '#6b16ed';
+            return '#ffffff';
         };
         const hexToOklab = (hex) => {
             const [r, g, b] = window.normalizeThemeColor(hex).match(/[a-f\d]{2}/gi).map((channel) => srgbToLinear(parseInt(channel, 16) / 255));
@@ -115,20 +115,14 @@
                 : { sidebar: mixHex('#0c0c0e', accent, 0.1), selected: mixHex('#1c1c1f', accent, 0.3), accent, background: mixHex('#0f0f11', accent, 0.12) };
         };
         window.customThemePresets = [
-            // The built-in Dark theme, not a custom theme. Its colors start the fields when the user edits it. The sidebar is
-            // the color that the Dark sidebar shows: #120e1a with its 9% purple wash.
-            { name: 'Vyntra', theme: null, swatch: { sidebar: '#1a0f2d', selected: '#1c1c1c', accent: '#6b16ed', background: '#0a0a0a' } },
-            { name: 'Midnight', theme: { sidebar: '#0f172a', selected: '#2e4a7d', accent: '#f2458f', background: '#1a2338' } },
-            { name: 'Forest', theme: { sidebar: '#12342b', selected: '#2c6e57', accent: '#f4b860', background: '#1b2a25' } },
-            { name: 'Ember', theme: { sidebar: '#3b1410', selected: '#8f2d1f', accent: '#ffb86b', background: '#241816' } },
-            { name: 'Slate', theme: { sidebar: '#2b3038', selected: '#4a5361', accent: '#6cc4f5', background: '#353b45' } },
-            { name: 'Nord', theme: { sidebar: '#2e3440', selected: '#4c566a', accent: '#88c0d0', background: '#3b4252' } },
-            { name: 'Dracula', theme: { sidebar: '#21222c', selected: '#44475a', accent: '#bd93f9', background: '#282a36' } },
-            { name: 'GitHub Dark', theme: { sidebar: '#010409', selected: '#21262d', accent: '#2f81f7', background: '#0d1117' } },
-            { name: 'Aubergine', theme: { sidebar: '#3f0e40', selected: '#1164a3', accent: '#1164a3', background: '#ffffff' } },
-            { name: 'GitHub Light', theme: { sidebar: '#f6f8fa', selected: '#dde4ec', accent: '#0969da', background: '#ffffff' } },
-            { name: 'Paper', theme: { sidebar: '#ebe6da', selected: '#d9d1bf', accent: '#c2410c', background: '#f7f4ec' } },
-            { name: 'Blossom', theme: { sidebar: '#fde8f1', selected: '#f9c4dc', accent: '#d61f69', background: '#fff7fa' } },
+            { name: 'Vyntra', theme: null, swatch: { sidebar: '#181818', selected: '#2a2d2e', accent: '#ffffff', background: '#121212' } },
+            { name: 'VS Code Dark', theme: { sidebar: '#181818', selected: '#2a2d2e', accent: '#ffffff', background: '#1e1e1e' } },
+            { name: 'Monochrome', theme: { sidebar: '#0a0a0a', selected: '#262626', accent: '#ffffff', background: '#000000' } },
+            { name: 'Slate Gray', theme: { sidebar: '#1e2024', selected: '#2f343b', accent: '#e2e8f0', background: '#141619' } },
+            { name: 'GitHub Dark', theme: { sidebar: '#010409', selected: '#21262d', accent: '#f0f6fc', background: '#0d1117' } },
+            { name: 'Midnight', theme: { sidebar: '#0f172a', selected: '#2e4a7d', accent: '#38bdf8', background: '#1a2338' } },
+            { name: 'Nord', theme: { sidebar: '#2e3440', selected: '#4c566a', accent: '#eceff4', background: '#3b4252' } },
+            { name: 'GitHub Light', theme: { sidebar: '#f6f8fa', selected: '#dde4ec', accent: '#1f2328', background: '#ffffff' } },
         ];
         // Sets the variables that app.css derives the custom theme from. The sidebar gets its own
         // light/dark scheme (data-sidebar-scheme) when it differs from the page.

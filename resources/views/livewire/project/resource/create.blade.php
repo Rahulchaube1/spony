@@ -13,6 +13,8 @@
             <p class="empty-state-description text-[13px]">Setting up the resource. You will be redirected when it is ready.</p>
             <x-loading text="Creating..." class="mt-4" />
         </div>
+    @elseif ($type === 'github-deploy')
+        <livewire:project.new.github-deploy :type="$type" />
     @elseif ($type === 'public')
         <livewire:project.new.public-git-repository :type="$type" />
     @elseif ($type === 'private-gh-app')

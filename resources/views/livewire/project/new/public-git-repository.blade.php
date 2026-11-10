@@ -2,11 +2,14 @@
     class="mt-8 flex w-full max-w-none flex-col gap-6 lg:mt-3">
     <form wire:submit="loadBranch">
         <section class="application-settings-section">
-            <div class="application-settings-section-header">
+            <div class="application-settings-section-header flex flex-wrap items-center justify-between gap-2">
                 <div>
                     <h2>Public Git repository</h2>
                     <p>Connect a public repository over HTTPS and inspect its default branch.</p>
                 </div>
+                <a href="{{ route('project.resource.create', array_merge($parameters ?? [], ['type' => 'github-deploy'])) }}" class="text-xs font-semibold text-neutral-800 hover:text-black dark:text-neutral-200 dark:hover:text-white underline">
+                    Deploy Frontend & Backend (Vercel-style) &rarr;
+                </a>
             </div>
             <div class="application-settings-section-body">
                 <div class="flex flex-col gap-2 sm:flex-row sm:items-end">

@@ -52,7 +52,7 @@
                 x-bind:type="type"
                 x-bind:class="{ 'truncate': type === 'text' && ! $el.disabled }"
                 {{ $attributes->merge(['class' => $defaultClass]) }} @required($required) @if ($requiredWhen) x-bind:required="{{ $requiredWhen }}" @endif
-                @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+                @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]" @endif
                 wire:loading.attr="disabled"
                 @readonly($readonly) @disabled($disabled) id="{{ $htmlId }}"
                 name="{{ $name }}" placeholder="{{ $attributes->get('placeholder') }}"
@@ -82,7 +82,7 @@
         @endif
         <input autocomplete="{{ $autocomplete }}" @if ($value) value="{{ $value }}" @endif
             {{ $attributes->merge(['class' => $defaultClass]) }} @required($required) @if ($requiredWhen) x-bind:required="{{ $requiredWhen }}" @endif @readonly($readonly)
-            @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]" @endif
+            @if ($modelBinding !== 'null') wire:model={{ $modelBinding }} wire:dirty.class="[box-shadow:inset_4px_0_0_#000000,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#ffffff,inset_0_0_0_2px_#3c3c3c]" @endif
             wire:loading.attr="disabled"
             type="{{ $type }}" @disabled($disabled) min="{{ $attributes->get('min') }}"
             max="{{ $attributes->get('max') }}" minlength="{{ $attributes->get('minlength') }}"
