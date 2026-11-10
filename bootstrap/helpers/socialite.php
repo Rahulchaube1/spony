@@ -37,11 +37,12 @@ function get_socialite_provider(string $provider)
     }
 
     if ($provider == 'authentik' || $provider == 'clerk' || $provider == 'auth0') {
+        $baseUrl = $oauth_setting->base_url ?: config("services.{$provider}.base_url");
         $authentik_clerk_config = new Config(
-            $oauth_setting->client_id,
-            $oauth_setting->client_secret,
+            $oauth_setting->client_id ?: config("services.{$provider}.client_id"),
+            $oauth_setting->client_secret ?: config("services.{$provider}.client_secret"),
             $oauth_setting->redirect_uri,
-            ['base_url' => $oauth_setting->base_url],
+            ['base_url' => $baseUrl],
         );
 
         return Socialite::driver($provider)->setConfig($authentik_clerk_config);
@@ -49,10 +50,10 @@ function get_socialite_provider(string $provider)
 
     if ($provider == 'zitadel') {
         $zitadel_config = new Config(
-            $oauth_setting->client_id,
-            $oauth_setting->client_secret,
+            $oauth_setting->client_id ?: config('services.zitadel.client_id'),
+            $oauth_setting->client_secret ?: config('services.zitadel.client_secret'),
             $oauth_setting->redirect_uri,
-            ['base_url' => $oauth_setting->base_url],
+            ['base_url' => $oauth_setting->base_url ?: config('services.zitadel.base_url')],
         );
 
         return Socialite::driver('zitadel')->setConfig($zitadel_config);
@@ -64,14 +65,17 @@ function get_socialite_provider(string $provider)
 
     if ($provider == 'google') {
         $google_config = new Config(
-            $oauth_setting->client_id,
-            $oauth_setting->client_secret,
+            $oauth_setting->client_id ?: config('services.google.client_id'),
+            $oauth_setting->client_secret ?: config('services.google.client_secret'),
             $oauth_setting->redirect_uri
         );
 
-        return Socialite::driver('google')
-            ->setConfig($google_config)
-            ->with(['hd' => $oauth_setting->tenant]);
+        $driver = Socialite::driver('google')->setConfig($google_config);
+        if (filled($oauth_setting->tenant)) {
+            $driver->with(['hd' => $oauth_setting->tenant]);
+        }
+
+        return $driver;
     }
 
     $config = [

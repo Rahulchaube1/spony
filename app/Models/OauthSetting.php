@@ -29,11 +29,42 @@ class OauthSetting extends Model
         'client_secret',
     ];
 
+    protected function clientId(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => filled($value) ? $value : config("services.{$this->provider}.client_id"),
+        );
+    }
+
     protected function clientSecret(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => empty($value) ? null : Crypt::decryptString($value),
+            get: function (?string $value) {
+                if (filled($value)) {
+                    try {
+                        return Crypt::decryptString($value);
+                    } catch (\Throwable) {
+                        return $value;
+                    }
+                }
+
+                return config("services.{$this->provider}.client_secret");
+            },
             set: fn (?string $value) => empty($value) ? null : Crypt::encryptString($value),
+        );
+    }
+
+    protected function baseUrl(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => filled($value) ? $value : config("services.{$this->provider}.base_url"),
+        );
+    }
+
+    protected function tenant(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?string $value) => filled($value) ? $value : config("services.{$this->provider}.tenant"),
         );
     }
 

@@ -50,10 +50,16 @@ class FortifyServiceProvider extends ServiceProvider
                 return redirect()->route('login');
             }
 
+            $enabled_oauth_providers = OauthSetting::where('enabled', true)->get();
+
             return view('auth.register', [
                 'isFirstUser' => $isFirstUser,
                 'isRootSetupWindowPending' => $isFirstUser && RootSetupWindow::isPending(),
                 'isRootSetupWindowClosed' => $isFirstUser && ! RootSetupWindow::isOpen(),
+                'enabled_oauth_providers' => $enabled_oauth_providers,
+                'can_register_with_oauth' => $enabled_oauth_providers->contains(
+                    fn (OauthSetting $oauthSetting) => $oauthSetting->couldBeEnabled() && $oauthSetting->allowsUserCreation()
+                ),
             ]);
         });
 

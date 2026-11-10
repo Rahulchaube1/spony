@@ -7,6 +7,7 @@
     "auth.login.discord": "Login with Discord",
     "auth.login.github": "Login with GitHub",
     "auth.login.gitlab": "Login with Gitlab",
+    "auth.login.auth0": "Login with Auth0",
     "auth.login.google": "Login with Google",
     "auth.login.oidc": "Login with SSO",
     "auth.login.infomaniak": "Login with Infomaniak",

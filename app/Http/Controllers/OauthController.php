@@ -12,7 +12,19 @@ class OauthController extends Controller
 {
     public function redirect(string $provider)
     {
-        $oauthSetting = $this->enabledProvider($provider);
+        $oauthSetting = OauthSetting::where('provider', $provider)->first();
+        if (! $oauthSetting) {
+            abort(404);
+        }
+
+        $clientId = $oauthSetting->client_id ?: config("services.{$provider}.client_id");
+        $clientSecret = $oauthSetting->client_secret ?: config("services.{$provider}.client_secret");
+        $baseUrl = $oauthSetting->base_url ?: config("services.{$provider}.base_url");
+
+        if (blank($clientId) || blank($clientSecret) || ($provider === 'auth0' && blank($baseUrl))) {
+            return redirect()->route('login')->with('error', 'Real '.ucfirst($provider).' OAuth is enabled. To connect to your application, please provide '.strtoupper($provider).'_CLIENT_ID and '.strtoupper($provider).'_CLIENT_SECRET in your environment or configure them under Settings -> OAuth.');
+        }
+
         $socialiteProvider = get_socialite_provider($oauthSetting->provider);
 
         return $socialiteProvider->redirect();

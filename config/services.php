@@ -53,6 +53,13 @@ return [
         'base_url' => env('CLERK_BASE_URL'),
     ],
 
+    'auth0' => [
+        'base_url' => env('AUTH0_BASE_URL') ?: (env('AUTH0_DOMAIN') ? (str_starts_with(env('AUTH0_DOMAIN'), 'http') ? env('AUTH0_DOMAIN') : 'https://'.env('AUTH0_DOMAIN')) : null),
+        'client_id' => env('AUTH0_CLIENT_ID'),
+        'client_secret' => env('AUTH0_CLIENT_SECRET'),
+        'redirect' => env('AUTH0_REDIRECT_URI'),
+    ],
+
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),

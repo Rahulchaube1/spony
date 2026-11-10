@@ -216,7 +216,7 @@ class OauthLoginService
             'discord' => data_get($rawClaims, 'verified') === true,
             'azure' => strtolower((string) data_get($rawClaims, 'userPrincipalName')) === $email,
             'gitlab' => filled(data_get($rawClaims, 'confirmed_at')),
-            default => data_get($rawClaims, 'email_verified') === true,
+            default => (bool) data_get($rawClaims, 'email_verified'),
         };
     }
 

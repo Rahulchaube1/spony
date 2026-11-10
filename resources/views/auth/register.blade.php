@@ -39,6 +39,10 @@ $email = getOldOrLocal('email', 'test3@example.com');
                 </x-auth.alert>
             @endif
 
+            @if (session('error'))
+                <x-auth.alert type="error">{{ session('error') }}</x-auth.alert>
+            @endif
+
             @if ($errors->any())
                 <x-auth.alert type="error">
                     <div class="flex flex-col gap-1">
@@ -70,6 +74,22 @@ $email = getOldOrLocal('email', 'test3@example.com');
                     Create account
                 </x-forms.button>
             </form>
+
+            @if (isset($enabled_oauth_providers) && $enabled_oauth_providers->isNotEmpty())
+                <div class="auth-divider"><span>Or sign up with</span></div>
+                <div class="flex flex-col gap-2">
+                    @foreach ($enabled_oauth_providers as $provider_setting)
+                        <x-forms.button class="w-full justify-center" type="button"
+                            onclick="document.location.href='/auth/{{ $provider_setting->provider }}/redirect'">
+                            @if ($provider_setting->provider !== 'oidc')
+                                <img class="size-5 shrink-0 dark:invert"
+                                    src="{{ asset('svgs/'.$provider_setting->provider.'.svg') }}" alt="" aria-hidden="true">
+                            @endif
+                            Sign up with {{ $provider_setting->provider === 'google' ? 'Google' : ($provider_setting->provider === 'auth0' ? 'Auth0' : $provider_setting->loginLabel()) }}
+                        </x-forms.button>
+                    @endforeach
+                </div>
+            @endif
             @endunless
         </div>
 

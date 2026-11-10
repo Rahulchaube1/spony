@@ -558,34 +558,36 @@
             }));
         }
         @auth
-            window.Pusher = Pusher;
-            const EchoConstructor = typeof Echo === 'function' ? Echo : Echo.default;
-            window.Echo = new EchoConstructor({
-                broadcaster: 'reverb',
-                key: "{{ config('constants.pusher.app_key') }}" || 'coolify',
-                wsHost: "{{ config('constants.pusher.host') }}" || window.location.hostname,
-                wsPort: "{{ getRealtime() }}",
-                wssPort: "{{ getRealtime() }}",
-                forceTLS: window.location.protocol === 'https:',
-                encrypted: true,
-                enableStats: false,
-                enableLogging: true,
-                enabledTransports: ['ws', 'wss'],
-                disableStats: true,
-                // Add auto reconnection settings
-                enabledTransports: ['ws', 'wss'],
-                disabledTransports: ['sockjs', 'xhr_streaming', 'xhr_polling'],
-                // Attempt to reconnect on connection lost
-                autoReconnect: true,
-                // Wait 1 second before first reconnect attempt
-                reconnectionDelay: 1000,
-                // Maximum delay between reconnection attempts
-                maxReconnectionDelay: 1000,
-                // Multiply delay by this number for each reconnection attempt
-                reconnectionDelayGrowth: 1,
-                // Maximum number of reconnection attempts
-                maxAttempts: 15
-            });
+            try {
+                if (typeof Pusher !== 'undefined') {
+                    window.Pusher = Pusher;
+                }
+                const EchoConstructor = typeof Echo === 'function' ? Echo : (typeof Echo !== 'undefined' && Echo && Echo.default ? Echo.default : null);
+                const realtimePort = "{{ getRealtime() }}" || (window.location.protocol === 'https:' ? 443 : 80);
+                if (EchoConstructor && typeof window.Pusher !== 'undefined') {
+                    window.Echo = new EchoConstructor({
+                        broadcaster: 'reverb',
+                        key: "{{ config('constants.pusher.app_key') }}" || 'coolify',
+                        wsHost: "{{ config('constants.pusher.host') }}" || window.location.hostname,
+                        wsPort: realtimePort,
+                        wssPort: realtimePort,
+                        forceTLS: window.location.protocol === 'https:',
+                        encrypted: true,
+                        enableStats: false,
+                        enableLogging: false,
+                        enabledTransports: ['ws', 'wss'],
+                        disableStats: true,
+                        disabledTransports: ['sockjs', 'xhr_streaming', 'xhr_polling'],
+                        autoReconnect: true,
+                        reconnectionDelay: 2000,
+                        maxReconnectionDelay: 5000,
+                        reconnectionDelayGrowth: 1.5,
+                        maxAttempts: 5
+                    });
+                }
+            } catch (echoErr) {
+                console.warn('Realtime info:', echoErr);
+            }
         @endauth
         let checkHealthInterval = null;
         let checkIfIamDeadInterval = null;
