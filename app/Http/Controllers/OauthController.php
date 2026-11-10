@@ -27,6 +27,10 @@ class OauthController extends Controller
 
         $socialiteProvider = get_socialite_provider($oauthSetting->provider);
 
+        if (env('VERCEL') || isset($_SERVER['VERCEL']) || config('session.driver') === 'cookie') {
+            $socialiteProvider = $socialiteProvider->stateless();
+        }
+
         return $socialiteProvider->redirect();
     }
 
@@ -34,7 +38,18 @@ class OauthController extends Controller
     {
         try {
             $oauthSetting = $this->enabledProvider($provider);
-            $oauthUser = get_socialite_provider($oauthSetting->provider)->user();
+            $driver = get_socialite_provider($oauthSetting->provider);
+
+            if (env('VERCEL') || isset($_SERVER['VERCEL']) || config('session.driver') === 'cookie') {
+                $driver = $driver->stateless();
+            }
+
+            try {
+                $oauthUser = $driver->user();
+            } catch (\Laravel\Socialite\Two\InvalidStateException) {
+                $oauthUser = get_socialite_provider($oauthSetting->provider)->stateless()->user();
+            }
+
             $user = $oauthLoginService->login($oauthSetting->provider, $oauthUser, $oauthSetting);
 
             if ($oauthLoginService->requiresTwoFactorChallenge($user)) {

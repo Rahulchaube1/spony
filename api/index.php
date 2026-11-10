@@ -42,9 +42,9 @@ putenv('CACHE_DRIVER=array');
 $_ENV['CACHE_DRIVER'] = 'array';
 $_SERVER['CACHE_DRIVER'] = 'array';
 
-putenv('SESSION_DRIVER=file');
-$_ENV['SESSION_DRIVER'] = 'file';
-$_SERVER['SESSION_DRIVER'] = 'file';
+putenv('SESSION_DRIVER=cookie');
+$_ENV['SESSION_DRIVER'] = 'cookie';
+$_SERVER['SESSION_DRIVER'] = 'cookie';
 
 putenv('QUEUE_CONNECTION=sync');
 $_ENV['QUEUE_CONNECTION'] = 'sync';
