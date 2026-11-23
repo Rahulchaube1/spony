@@ -31,11 +31,9 @@
   "env": {
     "APP_NAME": "Vyntra",
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_DEBUG": "false",
     "APP_URL": "https://vyntra.everestqai.com",
-    "APP_KEY": "base64:8VEfVNVkXQ9mH2L33WBWNMF4eQ0BWD5CTzB8mIxcl+k=",
-    "DB_CONNECTION": "sqlite",
-    "DB_DATABASE": "/tmp/database.sqlite",
+    "DB_CONNECTION": "pgsql",
     "APP_MAINTENANCE_DRIVER": "file",
     "APP_MAINTENANCE_STORE": "array",
     "CACHE_STORE": "array",

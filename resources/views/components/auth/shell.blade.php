@@ -20,6 +20,7 @@
                 {{ $slot }}
             </div>
 
+            <p class="flex justify-center py-3"><a class="eq-family-link" href="https://www.everestqai.com/products">All EverestQ products →</a></p>
             @isset($footer)
                 <footer class="auth-card-footer">
                     {{ $footer }}

@@ -439,6 +439,13 @@
         <script type="text/javascript" src="{{ URL::asset('js/apexcharts.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/purify.min.js') }}"></script>
     @endauth
+    <link rel="stylesheet" href="https://www.everestqai.com/brand/everestq.css">
+    <style>
+        .auth-shell { font-family:var(--eq-sans,system-ui); background:#080807; }
+        .auth-shell .auth-card { color:#f5f0eb; background:#141311; border:1px solid #443b34; border-radius:0; }
+        .auth-shell h1, .auth-shell h2 { font-family:var(--eq-serif,Georgia); }
+        .auth-shell button, .auth-shell input { border-radius:0; }
+    </style>
 </head>
 @section('body')
 

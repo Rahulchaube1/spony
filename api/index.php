@@ -5,30 +5,21 @@ putenv('VERCEL=1');
 $_ENV['VERCEL'] = '1';
 $_SERVER['VERCEL'] = '1';
 
-putenv('APP_DEBUG=true');
-$_ENV['APP_DEBUG'] = 'true';
-$_SERVER['APP_DEBUG'] = 'true';
+putenv('APP_DEBUG=false');
+$_ENV['APP_DEBUG'] = 'false';
+$_SERVER['APP_DEBUG'] = 'false';
 
 putenv('COOLIFY_VERSION=1.0.0');
 $_ENV['COOLIFY_VERSION'] = '1.0.0';
 $_SERVER['COOLIFY_VERSION'] = '1.0.0';
 
-$incomingHost = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? null;
-if (!empty($incomingHost)) {
-    $proto = ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? 'https') === 'http' ? 'http' : 'https';
-    $dynamicAppUrl = $proto . '://' . $incomingHost;
-    putenv("APP_URL={$dynamicAppUrl}");
-    $_ENV['APP_URL'] = $dynamicAppUrl;
-    $_SERVER['APP_URL'] = $dynamicAppUrl;
+// An infrastructure console needs persistent storage and its own encryption key.
+if (!getenv('APP_KEY') || !getenv('DATABASE_URL')) {
+    http_response_code(503);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Vyntra is temporarily unavailable while the workspace is being configured.';
+    return;
 }
-
-putenv('DB_CONNECTION=sqlite');
-$_ENV['DB_CONNECTION'] = 'sqlite';
-$_SERVER['DB_CONNECTION'] = 'sqlite';
-
-putenv('DB_DATABASE=/tmp/database.sqlite');
-$_ENV['DB_DATABASE'] = '/tmp/database.sqlite';
-$_SERVER['DB_DATABASE'] = '/tmp/database.sqlite';
 
 putenv('APP_MAINTENANCE_DRIVER=file');
 $_ENV['APP_MAINTENANCE_DRIVER'] = 'file';
@@ -70,14 +61,6 @@ foreach ($storageDirs as $dir) {
     }
 }
 
-// Copy pre-populated SQLite database to writable /tmp if missing or empty
-$sourceDb = __DIR__ . '/../database/database.sqlite';
-$targetDb = '/tmp/database.sqlite';
-if (file_exists($sourceDb) && (!file_exists($targetDb) || filesize($targetDb) === 0 || filemtime($sourceDb) > filemtime($targetDb))) {
-    @copy($sourceDb, $targetDb);
-    @chmod($targetDb, 0666);
-}
-
 // Ensure REMOTE_ADDR is set for serverless environments
 if (empty($_SERVER['REMOTE_ADDR'])) {
     $_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '127.0.0.1';
@@ -86,7 +69,9 @@ if (empty($_SERVER['REMOTE_ADDR'])) {
 // Forward Vercel request to Laravel public index
 try {
     require __DIR__ . '/../public/index.php';
-} catch (\Throwable $e) {
-    header('Content-Type: text/plain', true, 500);
-    echo "VYNTRA APPLICATION ERROR: " . $e->getMessage() . "\n\nFile: " . $e->getFile() . ":" . $e->getLine() . "\n\nTrace:\n" . $e->getTraceAsString();
+} catch (\Throwable $error) {
+    error_log('Vyntra could not serve the request: ' . get_class($error));
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=utf-8');
+    echo 'Vyntra could not complete this request.';
 }
